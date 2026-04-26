@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Weapon
+  - Shell
+  - Ricochet
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Weapon
+  - Shell
+  - Bullet
+  - Player
+  - Enemy
+  - Ground
+  - DeadEnemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Weapon
+    uniqueID: 4250391093
+    locked: 0
+  - name: Player
+    uniqueID: 1627357797
+    locked: 0
+  m_RenderingLayers:
+  - Default
