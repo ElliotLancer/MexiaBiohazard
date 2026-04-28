@@ -46,5 +46,5 @@ public class EnemyRagdoll : MonoBehaviour
             rb.simulated = false;
         }
     }
-
+   
 }
