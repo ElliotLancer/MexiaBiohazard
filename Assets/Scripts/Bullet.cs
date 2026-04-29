@@ -32,6 +32,11 @@ public class Bullet : MonoBehaviour
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             enemy.takeDamage(_damage);
         }
+        if (other.CompareTag("HitBox"))
+        {
+            BodyPartHitBox bodyPart = GetComponent<BodyPartHitBox>();
+            bodyPart.TakeHit(_damage);
+        }
         
         Destroy(gameObject);
     }
