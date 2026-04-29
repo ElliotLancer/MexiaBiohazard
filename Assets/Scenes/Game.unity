@@ -3325,7 +3325,6 @@ GameObject:
   m_Component:
   - component: {fileID: 865634774}
   - component: {fileID: 865634775}
-  - component: {fileID: 865634777}
   m_Layer: 0
   m_Name: ExplodingFish
   m_TagString: Untagged
@@ -3391,28 +3390,6 @@ MonoBehaviour:
   _mainRb: {fileID: 533193859}
   _mainCollider: {fileID: 533193860}
   _animator: {fileID: 0}
---- !u!95 &865634777
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865634773}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 49e5af4b361ddb4489d69bd0df664b0f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &882099610
 GameObject:
   m_ObjectHideFlags: 0
