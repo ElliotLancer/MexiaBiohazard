@@ -3,7 +3,7 @@ using UnityEngine;
 public class BodyPartHitBox : MonoBehaviour
 {
     [SerializeField] private float _multiplier;
-    [SerializeField] private EnemyHealth _health;
+    [SerializeField] private ZombieEnemyHealth _health;
 
     public void TakeHit(int damage)
     {

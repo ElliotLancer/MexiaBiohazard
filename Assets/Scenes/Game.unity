@@ -226,7 +226,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.039000034, y: 0.058999896}
+  m_ConnectedAnchor: {x: -0.039000034, y: 0.059000015}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -1842,7 +1842,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.87299985, y: -0.024000049}
+  m_ConnectedAnchor: {x: -0.8729999, y: -0.024000078}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -2673,7 +2673,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.030999899, y: -0.88699996}
+  m_ConnectedAnchor: {x: -0.030999903, y: -0.88699996}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -4163,7 +4163,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.00999999, y: -1.099}
+  m_ConnectedAnchor: {x: -0.009999901, y: -1.0990001}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -4262,7 +4262,7 @@ GameObject:
   - component: {fileID: 1511492117}
   m_Layer: 10
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4449,7 +4449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf43d9226d7f6b4984380842f38c265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _multiplier: 0
+  _multiplier: 4
   _health: {fileID: 2028564678}
 --- !u!1 &1538861499
 GameObject:
@@ -4929,7 +4929,6 @@ GameObject:
   - component: {fileID: 1739058774}
   - component: {fileID: 1739058773}
   - component: {fileID: 1739058775}
-  - component: {fileID: 1739058776}
   m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
@@ -5096,22 +5095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64377d8a09dfa464fbb4c0679c13bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1739058776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739058770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81b219217465f8343a9caa78fec11959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 2
-  _stopDistance: 1
-  _detectDistance: 10
-  canMove: 1
 --- !u!1 &1766557828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,6 +5379,8 @@ GameObject:
   - component: {fileID: 2028564677}
   - component: {fileID: 2028564678}
   - component: {fileID: 2028564679}
+  - component: {fileID: 2028564681}
+  - component: {fileID: 2028564680}
   m_Layer: 10
   m_Name: ZombieMan
   m_TagString: HitBox
@@ -5477,6 +5462,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2028564680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028564674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b219217465f8343a9caa78fec11959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _stopDistance: 1
+  _detectDistance: 10
+  canMove: 1
+--- !u!50 &2028564681
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028564674}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2061691889
 GameObject:
   m_ObjectHideFlags: 0
