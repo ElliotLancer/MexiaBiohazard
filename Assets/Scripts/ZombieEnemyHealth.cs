@@ -8,13 +8,13 @@ public class ZombieEnemyHealth : MonoBehaviour
     public void takeDamage(int damage)
     {
         _health -= damage;
-        Debug.Log($"{_name} - took {damage} damage");
+        Debug.Log($"{_name} {damage} damage");
         if (_health <= 0)
         {
             Die();
         }
     }
-    private void Die()
+    public void Die()
     {
         GetComponent<EnemyHitBoxRagdoll>().EnableRagdoll();
         int deadEnemyLayer = LayerMask.NameToLayer("DeadEnemy");

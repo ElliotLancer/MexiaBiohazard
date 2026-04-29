@@ -9,6 +9,7 @@ TagManager:
   - Ricochet
   - Enemy
   - HitBox
+  - MainCollider
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Enemy
   - Ground
   - DeadEnemy
-  - 
+  - MainCollider
   - 
   - 
   - 
