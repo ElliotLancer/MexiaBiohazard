@@ -42,7 +42,8 @@ public class EnemyHitBoxRagdoll : MonoBehaviour
 
         foreach(Rigidbody2D rb in _bodyPartRigidbody)
         {
-            rb.simulated = false;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.simulated = true;
         }
         foreach(Collider2D collider in _bodyPartColliders)
         {

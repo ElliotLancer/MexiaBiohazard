@@ -25,8 +25,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Weapon") || other.gameObject.layer == LayerMask.NameToLayer("DeadEnemy") || other.gameObject.layer == LayerMask.NameToLayer("MainCollider" +
-            "")) 
+        if (other.CompareTag("Player") || other.CompareTag("Weapon") || other.gameObject.layer == LayerMask.NameToLayer("DeadEnemy") || other.gameObject.layer == LayerMask.NameToLayer("MainCollider")) 
             return;
         if (other.CompareTag("Enemy"))
         {
