@@ -16,9 +16,9 @@ public class ZombieEnemyHealth : MonoBehaviour
     }
     public void Die()
     {
-        GetComponent<EnemyHitBoxRagdoll>().EnableRagdoll();
-        int deadEnemyLayer = LayerMask.NameToLayer("DeadEnemy");
+        GetComponent<EnemyZombieRagdoll>().EnableRagdoll();
         _remove.Remove();
+        int deadEnemyLayer = LayerMask.NameToLayer("DeadEnemy");
         SetLayerRecursively(gameObject, deadEnemyLayer);
         Debug.Log($"{_name} died");
     }

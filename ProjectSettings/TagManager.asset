@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - HitBox
   - MainCollider
+  - ZombieEnemy
   layers:
   - Default
   - TransparentFX

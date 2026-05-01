@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyHitBoxRagdoll : MonoBehaviour
+public class EnemyZombieRagdoll : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _mainRigidbody;
     [SerializeField] private Collider2D _mainCollider;
