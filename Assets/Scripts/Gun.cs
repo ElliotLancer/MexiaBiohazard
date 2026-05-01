@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Runtime.CompilerServices;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
@@ -17,6 +18,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _reloadTime = 3f;
     private bool _canShoot = true;
     [SerializeField] private Animator _animator;
+    [SerializeField] private ArmRecoil _recoil;
     public int CurrentAmmo => _currentAmmo;
     public int MaxAmmo => _magazineSize;
     public float torque = 150f;
@@ -50,6 +52,7 @@ public class Gun : MonoBehaviour
         lastShootTime = Time.time;
         _currentAmmo--;
         _animator.SetTrigger("shot");
+        _recoil.Fire();
         ShootBullet();
         SpawnShell();
     }
