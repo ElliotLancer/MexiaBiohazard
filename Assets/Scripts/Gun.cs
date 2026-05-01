@@ -98,6 +98,7 @@ public class Gun : MonoBehaviour
     private IEnumerator ReloadRoutine()
     {
         Debug.Log("reloading...");
+        _animator.SetTrigger("reload");
         _canShoot = false;
         yield return new WaitForSeconds(_reloadTime);
         Reload();
