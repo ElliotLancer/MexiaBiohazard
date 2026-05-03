@@ -19,7 +19,11 @@ public class EnemyZombieRagdoll : MonoBehaviour
         _mainRigidbody.simulated = false;
         _mainCollider.enabled = false;
         _animator.enabled = false;
-
+        IEnemyDeathHandler[] enemies = GetComponents<IEnemyDeathHandler>();
+        foreach(IEnemyDeathHandler enemy in enemies)
+        {
+            enemy.OnDeath();
+        }
         foreach(Rigidbody2D rb in _bodyPartRigidbody)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;

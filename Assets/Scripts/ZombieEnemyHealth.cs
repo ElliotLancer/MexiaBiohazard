@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ZombieEnemyHealth : MonoBehaviour
+public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
 {
     [SerializeField] private RemoveBackParts _remove;
     [SerializeField] private int _health = 70;
@@ -11,13 +11,13 @@ public class ZombieEnemyHealth : MonoBehaviour
         Debug.Log($"{_name} {damage} damage");
         if (_health <= 0)
         {
-            Die();
+            GetComponent<EnemyZombieRagdoll>().EnableRagdoll();
         }
     }
-    public void Die()
+    public void OnDeath()
     {
-        GetComponent<EnemyZombieRagdoll>().EnableRagdoll();
-        _remove.Remove();
+        if(_remove != null)
+            _remove.Remove();
         int deadEnemyLayer = LayerMask.NameToLayer("DeadEnemy");
         SetLayerRecursively(gameObject, deadEnemyLayer);
         Debug.Log($"{_name} died");
