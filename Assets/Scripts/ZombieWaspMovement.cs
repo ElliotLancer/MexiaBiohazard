@@ -9,6 +9,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private GameObject _prefab;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private float _fireRate = 2f;
+    [SerializeField] private Animator _animator;
     private bool _canMove = true;
     private bool _canShoot = true;
     private Transform _player;
@@ -62,10 +63,12 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
         {
             Stop();
         }
+        _animator.SetFloat("Speed", Mathf.Abs(_rb.linearVelocity.x));
     }
     private void Stop()
     {
         _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y);
+        _animator.SetFloat("Speed", 0);
     }
     private IEnumerator Shoot()
     {
