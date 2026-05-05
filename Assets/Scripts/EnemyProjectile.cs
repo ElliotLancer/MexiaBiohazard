@@ -21,11 +21,12 @@ public class EnemyProjectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
-            return;
-        PlayerHealth player = other.GetComponent<PlayerHealth>();
-        player.TakeDamage(_damage);
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            PlayerHealth player = other.GetComponent<PlayerHealth>();
+            player.TakeDamage(_damage);
+            Destroy(gameObject);
+        }
     }
 
 
