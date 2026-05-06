@@ -11,6 +11,8 @@ TagManager:
   - HitBox
   - MainCollider
   - ZombieEnemy
+  - Trigger
+  - Test
   layers:
   - Default
   - TransparentFX
@@ -26,8 +28,8 @@ TagManager:
   - Ground
   - DeadEnemy
   - MainCollider
-  - 
-  - 
+  - Bag
+  - Zone
   - 
   - 
   - 
