@@ -1942,6 +1942,7 @@ MonoBehaviour:
   _firePoint: {fileID: 1869747203}
   _fireRate: 2
   _animator: {fileID: 451827411}
+  _targetPoint: {fileID: 1656304442}
 --- !u!4 &451827408
 Transform:
   m_ObjectHideFlags: 0
@@ -2928,7 +2929,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -4341,7 +4342,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -4856,7 +4857,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -5359,7 +5360,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -5895,7 +5896,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -7499,13 +7500,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869747202}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.8235032, w: 0.5673117}
+  m_LocalRotation: {x: -0, y: -0, z: 0.999395, w: 0.034779366}
   m_LocalPosition: {x: -0.364, y: -0.574, z: -0.062183887}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 451827408}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 110.874}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 176.014}
 --- !u!1 &1932241290
 GameObject:
   m_ObjectHideFlags: 0

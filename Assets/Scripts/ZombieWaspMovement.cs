@@ -10,9 +10,9 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private Transform _firePoint;
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Transform _targetPoint;
     private bool _canMove = true;
     private bool _canShoot = true;
-    private Transform _player;
     private Coroutine _shootRoutine;
     private Rigidbody2D _rb;
     private void Awake()
@@ -21,16 +21,11 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     }
     private void Start()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            _player = playerObject.transform;
-        }
         _shootRoutine = StartCoroutine(Shoot());
     }
     private void Update()
     {
-        if (_player.position.x > transform.position.x)
+        if (_targetPoint.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -41,12 +36,12 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     }
     private void FixedUpdate()
     {
-        if (_player == null || !_canMove)
+        if (_targetPoint == null || !_canMove)
         {
             Stop();
             return;
         }
-        float distance = Vector2.Distance(transform.position, _player.position);
+        float distance = Vector2.Distance(transform.position, _targetPoint.position);
         if (distance > _detectDistance)
         {
             Stop();
@@ -55,7 +50,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
         }
         if (distance > _stopDistance)
         {
-            Vector2 direction = (_player.position - transform.position).normalized;
+            Vector2 direction = (_targetPoint.position - transform.position).normalized;
             _rb.linearVelocity = new Vector2(direction.x * _speed, _rb.linearVelocity.y);
             _canShoot = true;
         }
@@ -74,7 +69,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     {
         while (true)
         {
-            if (_player != null && _canMove && _canShoot)
+            if (_targetPoint != null && _canMove && _canShoot)
             {
                 GameObject projectileObject = Instantiate(_prefab, _firePoint.position, Quaternion.identity);
 
@@ -82,7 +77,8 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
 
                 if (projectile != null)
                 {
-                    Vector2 dir = (_player.position - _firePoint.position).normalized;
+                    Vector2 dir = (_targetPoint.position - _firePoint.position).normalized;
+                    Debug.DrawRay(_firePoint.position, dir * 5f, Color.red, 1f);
                     projectile.Shoot(dir);
                 }
             }
