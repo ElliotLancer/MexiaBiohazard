@@ -11,7 +11,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _targetPoint;
-    private bool _canMove = true;
+    [SerializeField] private bool _canMove = true;
     private bool _canShoot = true;
     private Coroutine _shootRoutine;
     private Rigidbody2D _rb;
@@ -21,18 +21,9 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     }
     private void Start()
     {
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //_targetPoint = player.transform.Find("Body");
         _shootRoutine = StartCoroutine(Shoot());
-    }
-    private void Update()
-    {
-        if (_targetPoint.position.x > transform.position.x)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
     }
     private void FixedUpdate()
     {
@@ -90,6 +81,10 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     {
         if (_shootRoutine != null)
             StopCoroutine(_shootRoutine);
+    }
+    public void SetTargetPoint(Transform target)
+    {
+        _targetPoint = target;
     }
 }
 
