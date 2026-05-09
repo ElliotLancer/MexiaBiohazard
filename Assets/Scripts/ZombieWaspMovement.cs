@@ -12,18 +12,30 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _targetPoint;
     [SerializeField] private bool _canMove = true;
+    private bool _isOnRight;
+    private HingeFlip _hinge;
     private bool _canShoot = true;
     private Coroutine _shootRoutine;
     private Rigidbody2D _rb;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _hinge = GetComponent<HingeFlip>();
     }
     private void Start()
     {
-        //GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //_targetPoint = player.transform.Find("Body");
         _shootRoutine = StartCoroutine(Shoot());
+        _isOnRight = _targetPoint.position.x > transform.position.x ? true : false;
+    }
+    private void Update()
+    {
+        FlipUtility.FlipYRotation(transform, _targetPoint);
+        bool isRight = FlipUtility.IsOnRight(transform, _targetPoint);
+        if ( isRight != _isOnRight)
+        {
+            _isOnRight = isRight;
+            _hinge.Flip();
+        }
     }
     private void FixedUpdate()
     {

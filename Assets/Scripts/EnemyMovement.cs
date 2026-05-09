@@ -5,6 +5,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _speed = 2;
     [SerializeField] private float _stopDistance = 1f;
     [SerializeField] private float _detectDistance = 10f;
+    private HingeFlip _hinge;
+    private bool _isOnRight;
     public bool canMove = true;
     private Animator _animator;
     private Transform _player;
@@ -13,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponentInParent<Animator>();
+        _hinge = GetComponent<HingeFlip>();
     }
     private void Start()
     {
@@ -24,13 +27,12 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Update()
     {
-        if(_player.position.x > transform.position.x)
+        FlipUtility.FlipYRotation(transform, _player);
+        bool isRight = FlipUtility.IsOnRight(transform, _player);
+        if (isRight != _isOnRight)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+            _isOnRight = isRight;
+            _hinge.Flip();
         }
     }
     private void FixedUpdate()
