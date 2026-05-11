@@ -19,7 +19,6 @@ public class EnemyZombieRagdoll : MonoBehaviour
         _mainRigidbody.simulated = false;
         _mainCollider.enabled = false;
         _animator.enabled = false;
-       
         IEnemyDeathHandler[] enemies = GetComponents<IEnemyDeathHandler>();
         foreach(IEnemyDeathHandler enemy in enemies)
         {

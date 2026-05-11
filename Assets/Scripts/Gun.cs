@@ -16,14 +16,18 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _reserveAmmo = 30;
     [SerializeField] private int _magazineSize = 20;
     [SerializeField] private float _reloadTime = 3f;
-    private bool _canShoot = true;
     [SerializeField] private Animator _animator;
+    private IShootPattern _shootPattern;
+    private bool _canShoot = true;
     public int CurrentAmmo => _currentAmmo;
     public int MaxAmmo => _magazineSize;
     public float torque = 150f;
 
     private float lastShootTime;
-
+    private void Awake()
+    {
+        _shootPattern = GetComponent<IShootPattern>();
+    }
     private void Update()
     {
         if (_canShoot)
@@ -57,16 +61,12 @@ public class Gun : MonoBehaviour
 
     private void ShootBullet()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
-        Vector2 dir = firePoint.up;
-        
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-
-        if (bulletScript != null)
+        if(_shootPattern == null)
         {
-            bulletScript.Shoot(dir);
+            Debug.Log("There is no IShootPattern on the gun");
+            return;
         }
+        _shootPattern.Shoot(firePoint, bulletPrefab);
     }
 
     private void SpawnShell()
@@ -95,7 +95,6 @@ public class Gun : MonoBehaviour
     }
     private IEnumerator ReloadRoutine()
     {
-        Debug.Log("reloading...");
         _animator.SetTrigger("reload");
         _canShoot = false;
         yield return new WaitForSeconds(_reloadTime);
