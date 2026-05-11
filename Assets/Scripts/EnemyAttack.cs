@@ -35,9 +35,15 @@ public class EnemyAttack : MonoBehaviour
     }
     private void Update()
     {
-        if(!_isAttacking && _playerInRange)
+        if (_playerHealth == null)
+            return;
+        if (!_isAttacking && _playerInRange)
         {
             StartCoroutine(AttackRoutine());
+        }
+        if (!_playerHealth._isAlive)
+        {
+            StopAllCoroutines();
         }
     }
     private IEnumerator AttackRoutine()

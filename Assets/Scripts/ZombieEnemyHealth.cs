@@ -4,10 +4,12 @@ public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
 {
     [SerializeField] private RemoveBackParts _remove;
     [SerializeField] private int _health = 70;
+    [SerializeField] private ResetPose _resetPose;
     private string _name;
     public void takeDamage(int damage)
     {
         _health -= damage;
+        _resetPose.Reset();
         Debug.Log($"{_name} {damage} damage");
         if (_health <= 0)
         {

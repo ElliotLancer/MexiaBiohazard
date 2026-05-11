@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class ResetPose : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform[] _bodyParts;
 
-    // Update is called once per frame
-    void Update()
+    private Quaternion[] _startRotation;
+
+    private void Awake()
     {
-        
+        _startRotation = new Quaternion[_bodyParts.Length];
+        for (int i = 0; i < _bodyParts.Length; i++)
+        {
+            _startRotation[i] = _bodyParts[i].localRotation;
+        }
+    }
+    public void Reset()
+    {
+        for ( int i = 0; i > _bodyParts.Length; i++)
+        {
+            _bodyParts[i].localRotation = _startRotation[i];
+        }
+        Debug.Log("reset");
     }
 }

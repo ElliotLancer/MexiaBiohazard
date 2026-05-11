@@ -1381,11 +1381,10 @@ MonoBehaviour:
   _scripts:
   - {fileID: 360887727}
   - {fileID: 360887726}
-  - {fileID: 360887725}
+  - {fileID: 2136387928}
   - {fileID: 360887723}
   - {fileID: 360887721}
   - {fileID: 360887731}
-  - {fileID: 2136387928}
   _animator: {fileID: 360887728}
   _rifleAnimator: {fileID: 2136387931}
   _mainCollider: {fileID: 360887730}
@@ -1406,6 +1405,7 @@ MonoBehaviour:
   _hp: 100
   _swapArm: {fileID: 360887721}
   flash: {fileID: 360887731}
+  _isAlive: 0
 --- !u!114 &360887726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3893,7 +3893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &997476229
 Transform:
   m_ObjectHideFlags: 0
@@ -4948,7 +4948,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: -7966632546290886000, guid: fbe2c961a5d9a0a409b46ff5d75a48fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5429,7 +5429,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: -7580258559542419865, guid: fbe2c961a5d9a0a409b46ff5d75a48fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6519,6 +6519,7 @@ GameObject:
   - component: {fileID: 2028564687}
   - component: {fileID: 2028564688}
   - component: {fileID: 2028564689}
+  - component: {fileID: 2028564690}
   m_Layer: 10
   m_Name: ZombieMan
   m_TagString: ZombieEnemy
@@ -6685,6 +6686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _remove: {fileID: 2028564684}
   _health: 70
+  _resetPose: {fileID: 2028564690}
 --- !u!114 &2028564687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6752,6 +6754,22 @@ MonoBehaviour:
   - {fileID: 974843607}
   - {fileID: 599004082}
   - {fileID: 1511492114}
+--- !u!114 &2028564690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028564674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef8a730910172469fcae7bfb44c59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bodyParts:
+  - {fileID: 1082005491}
+  - {fileID: 347018773}
+  - {fileID: 2119989213}
 --- !u!1 &2061691889
 GameObject:
   m_ObjectHideFlags: 0
@@ -7157,7 +7175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: 3672083404045533266, guid: fbe2c961a5d9a0a409b46ff5d75a48fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7532,6 +7550,7 @@ MonoBehaviour:
   _fireRate: 2
   _animator: {fileID: 3190861057588871442}
   _targetPoint: {fileID: 1656304442}
+  _playerHealth: {fileID: 360887725}
   _canMove: 1
 --- !u!4 &2084752379776121119
 Transform:
@@ -7913,7 +7932,7 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
+    m_LowerAngle: -34.405678
     m_UpperAngle: 80
 --- !u!114 &5281667820153573619
 MonoBehaviour:
@@ -7929,6 +7948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _remove: {fileID: 0}
   _health: 70
+  _resetPose: {fileID: 8364025929040484324}
 --- !u!1 &5830627491383398837
 GameObject:
   m_ObjectHideFlags: 0
@@ -8036,6 +8056,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2339496834031562334, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      propertyPath: m_Radius
+      value: 0.47731143
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339496834031562334, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.022688668
+      objectReference: {fileID: 0}
     - target: {fileID: 3291614967682695136, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: m_UseLimits
       value: 1
@@ -8055,6 +8083,10 @@ PrefabInstance:
     - target: {fileID: 7196735044234569889, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: _stopDistance
       value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702919990544213613, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      propertyPath: _attackCooldown
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8750504800223695333, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: m_Name
@@ -8474,6 +8506,7 @@ GameObject:
   - component: {fileID: 3190861057588871442}
   - component: {fileID: 2843503213407553962}
   - component: {fileID: 1306594510}
+  - component: {fileID: 8364025929040484324}
   m_Layer: 0
   m_Name: ZombieWasp
   m_TagString: ZombieEnemy
@@ -8481,6 +8514,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8364025929040484324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364025929040484323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef8a730910172469fcae7bfb44c59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bodyParts:
+  - {fileID: 2986436931282815556}
+  - {fileID: 2368466889605805488}
 --- !u!212 &8622913627405907167
 SpriteRenderer:
   m_ObjectHideFlags: 0

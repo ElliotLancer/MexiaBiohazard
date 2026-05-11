@@ -11,6 +11,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private float _fireRate = 2f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _targetPoint;
+    [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private bool _canMove = true;
     private bool _isOnRight;
     private HingeFlip _hinge;
@@ -36,6 +37,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
             _isOnRight = isRight;
             _hinge.Flip();
         }
+        
     }
     private void FixedUpdate()
     {
@@ -51,7 +53,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
             _canShoot = false;
             return;
         }
-        if (distance > _stopDistance)
+        if (distance > _stopDistance && _playerHealth._isAlive)
         {
             Vector2 direction = (_targetPoint.position - transform.position).normalized;
             _rb.linearVelocity = new Vector2(direction.x * _speed, _rb.linearVelocity.y);
@@ -62,6 +64,10 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
             Stop();
         }
         _animator.SetFloat("Speed", Mathf.Abs(_rb.linearVelocity.x));
+        if (!_playerHealth._isAlive)
+        {
+            _canShoot = false;
+        }
     }
     private void Stop()
     {

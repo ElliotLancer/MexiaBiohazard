@@ -10,11 +10,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private PlayerFlash flash;
     public event Action OnHealthChanged;
     public event Action OnDeath;
+    public bool _isAlive;
     public int Hp => _hp;
     public int MaxHp => _maxHp;
     private void Start()
     {
         _hp = _maxHp;
+        _isAlive = true;
         OnHealthChanged?.Invoke();
     }
     public void TakeDamage(int damage)
@@ -37,5 +39,6 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<PlayerRagdoll>().EnableRagdoll();
         _swapArm.SwapToDead();
         OnDeath?.Invoke();
+        _isAlive = false;
     }
 }
