@@ -6615,7 +6615,7 @@ MonoBehaviour:
   _magazineSize: 10
   _reloadTime: 3
   _animator: {fileID: 1746115596}
-  torque: 110
+  torque: 120
 --- !u!114 &1746115595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7080,7 +7080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2028564675
 Transform:
   m_ObjectHideFlags: 0
@@ -9081,7 +9081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8364025929040484324
 MonoBehaviour:
   m_ObjectHideFlags: 0

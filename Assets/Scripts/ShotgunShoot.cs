@@ -11,7 +11,7 @@ public class ShotgunShoot : MonoBehaviour, IShootPattern
             float angle = Random.Range(-_spread, _spread);
             Quaternion rotation = firePoint.rotation * Quaternion.Euler(0, 0, angle);
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
-            Vector2 dir = bullet.transform.right;
+            Vector2 dir = rotation * Vector2.up;
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             if(bulletScript != null)
             {
