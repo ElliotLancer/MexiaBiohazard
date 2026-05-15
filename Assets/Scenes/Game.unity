@@ -1407,7 +1407,7 @@ Transform:
   m_GameObject: {fileID: 360887719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.43, y: -1.89, z: -0.01478636}
+  m_LocalPosition: {x: 27.82, y: -1.89, z: -0.01478636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1897,7 +1897,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.027999846, y: -0.82100016}
+  m_ConnectedAnchor: {x: 0.028000323, y: -0.82100016}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -2235,7 +2235,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.010152863, y: 0.09051489}
+  m_ConnectedAnchor: {x: 0.010151435, y: 0.09051484}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -4758,6 +4758,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4343352928943509222, guid: 6d0d851e3766c0642a3e58096d9510a2, type: 3}
   _spawnPoint: {fileID: 283858883}
+--- !u!114 &1170956326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170956317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb4310dff9b15146a85d710dc34b3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joints:
+  - {fileID: 6189521515942907727}
+  - {fileID: 6189521515942907726}
+  - {fileID: 6189521515942907725}
 --- !u!1 &1183950604
 GameObject:
   m_ObjectHideFlags: 0
@@ -8559,15 +8575,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3291614967682695136, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: m_AngleLimits.m_LowerAngle
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3291614967682695136, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: m_AngleLimits.m_UpperAngle
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347862089182331830, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 4347862089182331830, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: m_AngleLimits.m_UpperAngle
-      value: 14.419825
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7196735044234569889, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: _stopDistance
@@ -8588,7 +8608,25 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8750504800223695333, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1170956325}
+    - targetCorrespondingSourceObject: {fileID: 8750504800223695333, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1170956326}
   m_SourcePrefab: {fileID: 100100000, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+--- !u!233 &6189521515942907725 stripped
+HingeJoint2D:
+  m_CorrespondingSourceObject: {fileID: 3291614967682695136, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+  m_PrefabInstance: {fileID: 6189521515942907724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!233 &6189521515942907726 stripped
+HingeJoint2D:
+  m_CorrespondingSourceObject: {fileID: 4347862089182331830, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+  m_PrefabInstance: {fileID: 6189521515942907724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!233 &6189521515942907727 stripped
+HingeJoint2D:
+  m_CorrespondingSourceObject: {fileID: 230941093491608785, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+  m_PrefabInstance: {fileID: 6189521515942907724}
+  m_PrefabAsset: {fileID: 0}
 --- !u!233 &6233099745648865039
 HingeJoint2D:
   m_ObjectHideFlags: 0
