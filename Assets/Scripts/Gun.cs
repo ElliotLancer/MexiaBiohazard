@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject shellPrefab;
 
     [SerializeField] private float _fireRate = 0.15f;
-    [SerializeField] private float _shellForce = 2f;
+    [SerializeField] private float _shellForce = 14f;
 
     [SerializeField] private int _currentAmmo = 10;
     [SerializeField] private int _reserveAmmo = 30;
@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     private bool _canShoot = true;
     public int CurrentAmmo => _currentAmmo;
     public int MaxAmmo => _magazineSize;
-    public float torque = 150f;
+    public float torque = 120f;
 
     private float lastShootTime;
     private void Awake()
