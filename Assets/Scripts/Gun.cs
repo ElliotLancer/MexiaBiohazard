@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _magazineSize = 20;
     [SerializeField] private float _reloadTime = 3f;
     [SerializeField] private Animator _animator;
+    [SerializeField] private string _shootAnimationName;
     private IShootPattern _shootPattern;
     private bool _canShoot = true;
     public int CurrentAmmo => _currentAmmo;
@@ -54,7 +55,6 @@ public class Gun : MonoBehaviour
             return;
         lastShootTime = Time.time;
         _currentAmmo--;
-        _animator.SetTrigger("shot");
         ShootBullet();
         SpawnShell();
     }
@@ -67,6 +67,7 @@ public class Gun : MonoBehaviour
             return;
         }
         _shootPattern.Shoot(firePoint, bulletPrefab);
+        _animator.Play(_shootAnimationName, 0, 0f);
     }
 
     private void SpawnShell()
