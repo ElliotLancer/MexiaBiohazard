@@ -410,7 +410,7 @@ Transform:
   m_GameObject: {fileID: 40824067}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.10050011, w: 0.9949371}
-  m_LocalPosition: {x: 0.1630001, y: -0.13899988, z: 0.0057367063}
+  m_LocalPosition: {x: 0.1630001, y: -0.13899988, z: 0.005736706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1581,7 +1581,7 @@ Transform:
   m_GameObject: {fileID: 360887719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.82, y: -1.89, z: -0.01478636}
+  m_LocalPosition: {x: -5.94, y: -1.89, z: -0.01478636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2072,7 +2072,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.028000323, y: -0.82100016}
+  m_ConnectedAnchor: {x: 0.027999846, y: -0.82100016}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -2410,7 +2410,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.010151435, y: 0.09051484}
+  m_ConnectedAnchor: {x: 0.010152863, y: 0.09051489}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -4492,7 +4492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1048677599
 Animator:
   serializedVersion: 7
@@ -4543,7 +4543,7 @@ MonoBehaviour:
   shellPoint: {fileID: 1154317565}
   bulletPrefab: {fileID: 9104916965378601876, guid: f4c916d90497bb846891da39e7e428c9, type: 3}
   shellPrefab: {fileID: 242847426150022844, guid: 9f117890ea208084198e86ddd2fe6fc6, type: 3}
-  _fireRate: 0.15
+  _fireRate: 0.26
   _shellForce: 14
   _currentAmmo: 10
   _reserveAmmo: 30
@@ -4634,7 +4634,7 @@ Transform:
   m_GameObject: {fileID: 1048677598}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.379, y: 0.092, z: -0.0021610316}
+  m_LocalPosition: {x: 0.786, y: 0.115, z: -0.0021610316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8123,7 +8123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2136387926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9540,7 +9540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8364025929040484324
 MonoBehaviour:
   m_ObjectHideFlags: 0
