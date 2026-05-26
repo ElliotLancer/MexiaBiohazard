@@ -18,9 +18,13 @@ public class ChangeWeapon : MonoBehaviour
     [SerializeField] private WeaponPose _shotgunPose;
     [SerializeField] private WeaponPose _punchPose;
     [SerializeField] private GameObject _weaponArmPoint;
+    [SerializeField] private GameObject _meleeCombat;
     public void ChangeGun()
     {
         GetCurrentWeapon();
+        bool isHands = currentWeaponType == WeaponType.Hands;
+        _meleeCombat.SetActive(isHands);
+
         switch (currentWeaponType)
         {
             case WeaponType.Pistol:
