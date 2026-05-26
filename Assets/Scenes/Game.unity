@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  m_Color: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1907,6 +1907,9 @@ MonoBehaviour:
     backFist: {fileID: -1196327458, guid: cb4fbb304083c2e4595ea1abe61708d2, type: 3}
   _weaponArmPoint: {fileID: 2101798564}
   _meleeCombat: {fileID: 788623343}
+  _weaponUI: {fileID: 1053701770}
+  _ammoUI: {fileID: 1012509338}
+  _rect: {fileID: 898022245}
 --- !u!114 &360887734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,7 +1924,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapons:
   - {fileID: 1048677598}
-  - {fileID: 2136387925}
   - {fileID: 1746115589}
   - {fileID: 1386454315}
   _currentWeapon: {fileID: 360887733}
@@ -1975,7 +1977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78113204, g: 0.78113204, b: 0.78113204, a: 1}
+  m_Color: {r: 0.5999999, g: 0.5999999, b: 0.5999999, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3862,7 +3864,7 @@ GameObject:
   - component: {fileID: 898022247}
   - component: {fileID: 898022246}
   m_Layer: 5
-  m_Name: Rifle
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3885,7 +3887,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75.27002, y: -35.429993}
-  m_SizeDelta: {x: 89.48999, y: 31.429993}
+  m_SizeDelta: {x: 89, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898022246
 MonoBehaviour:
@@ -4954,6 +4956,7 @@ GameObject:
   - component: {fileID: 1053701767}
   - component: {fileID: 1053701769}
   - component: {fileID: 1053701768}
+  - component: {fileID: 1053701770}
   m_Layer: 5
   m_Name: WeaponWindow
   m_TagString: Untagged
@@ -4974,8 +4977,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1183950605}
-  - {fileID: 31948910}
   - {fileID: 414599014}
+  - {fileID: 31948910}
   - {fileID: 1012509337}
   - {fileID: 198615335}
   m_Father: {fileID: 156251215}
@@ -5023,6 +5026,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053701766}
   m_CullTransparentMesh: 1
+--- !u!114 &1053701770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053701766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fba72b8cff78674f986e50de9247ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponImage: {fileID: 898022246}
+  pistol: {fileID: -6595680761151332689, guid: ec1e4b0b8af2d554ebbbab7ec6f8ac87, type: 3}
+  rifle: {fileID: 7448113381798972013, guid: ec1e4b0b8af2d554ebbbab7ec6f8ac87, type: 3}
+  shotgun: {fileID: 7843416716369364892, guid: ec1e4b0b8af2d554ebbbab7ec6f8ac87, type: 3}
+  hands: {fileID: -1196327458, guid: cb4fbb304083c2e4595ea1abe61708d2, type: 3}
+  slots:
+  - {fileID: 1183950606}
+  - {fileID: 414599015}
+  - {fileID: 31948911}
+  mainSlotColor: {r: 0.91764706, g: 0.91764706, b: 0.91764706, a: 0.91764706}
+  graySlotColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.6}
 --- !u!1 &1066064899
 GameObject:
   m_ObjectHideFlags: 0
@@ -6934,7 +6960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1746115590
 Rigidbody2D:
   serializedVersion: 5
@@ -8312,7 +8338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2136387926
 SpriteRenderer:
   m_ObjectHideFlags: 0

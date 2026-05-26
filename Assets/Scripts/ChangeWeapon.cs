@@ -19,35 +19,60 @@ public class ChangeWeapon : MonoBehaviour
     [SerializeField] private WeaponPose _punchPose;
     [SerializeField] private GameObject _weaponArmPoint;
     [SerializeField] private GameObject _meleeCombat;
+    [SerializeField] private WeaponUI _weaponUI;
+    [SerializeField] private AmmoUI _ammoUI;
+    [SerializeField] private Gun _currentGun;
+
+    [SerializeField] private RectTransform _rect;
     public void ChangeGun()
     {
         GetCurrentWeapon();
         bool isHands = currentWeaponType == WeaponType.Hands;
+        if (isHands)
+        {
+            _ammoUI.HideAmmoUI();
+        }
+        else
+        {
+            _ammoUI.ShowAmmoUI();
+        }
         _meleeCombat.SetActive(isHands);
+
+        _currentGun = _weaponArmPoint.GetComponentInChildren<Gun>();
+        if (_currentGun != null)
+            _ammoUI.SetWeapon(_currentGun);
 
         switch (currentWeaponType)
         {
             case WeaponType.Pistol:
                 ApplyPose(_pistolPose);
+                _weaponUI.weaponImage.sprite = _weaponUI.pistol;
+                _weaponUI.ChangeSlot(0);
+                _rect.sizeDelta = new Vector2(42, 31);
                 break;
             case WeaponType.Rifle:
                 ApplyPose(_riflePose);
+                _weaponUI.weaponImage.sprite = _weaponUI.rifle;
+                _weaponUI.ChangeSlot(1);
+                _rect.sizeDelta = new Vector2(89, 31);
                 break;
             case WeaponType.Shotgun:
                 ApplyPose(_shotgunPose);
+                _weaponUI.weaponImage.sprite = _weaponUI.shotgun;
+                _weaponUI.ChangeSlot(1);
+                _rect.sizeDelta = new Vector2(89, 31);
                 break;
             default:
                 ApplyPose(_punchPose);
+                _weaponUI.weaponImage.sprite = _weaponUI.hands;
+                _weaponUI.ChangeSlot(2);
+                _rect.sizeDelta = new Vector2(42, 31);
                 break;
         }
     }
     private void Awake()
     {
         GetCurrentWeapon();
-    }
-    private void Update()
-    {
-        ChangeGun();
     }
     private void ApplyPose(WeaponPose pose)
     {

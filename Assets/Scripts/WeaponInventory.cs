@@ -23,6 +23,8 @@ public class WeaponInventory : MonoBehaviour
         if (_currentIndex >= _weapons.Length)
             _currentIndex = 0;
         _weapons[_currentIndex].SetActive(true);
+        _currentWeapon.ChangeGun();
+
     }
     private void ChangeWeaponByIndex(int index)
     {
@@ -31,6 +33,7 @@ public class WeaponInventory : MonoBehaviour
         _weapons[_currentIndex].SetActive(false);
         _currentIndex = index;
         _weapons[_currentIndex].SetActive(true);
+        _currentWeapon.ChangeGun();
     }
     private void Update()
     {
