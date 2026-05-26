@@ -8,5 +8,6 @@ public struct WeaponPose
     public Vector3 backForearmRotation;
     public Vector3 handRotation;
     public Vector3 backHandRotation;
-
+    public Sprite fist;
+    public Sprite backFist;
 }

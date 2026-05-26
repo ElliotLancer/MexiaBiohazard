@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ChangeWeapon : MonoBehaviour
 {
-    [SerializeField] private WeaponType currentWeaponType;
+    public WeaponType currentWeaponType;
 
     [SerializeField] private Transform _shoulder;
     [SerializeField] private Transform _backShoulder;
@@ -18,14 +18,9 @@ public class ChangeWeapon : MonoBehaviour
     [SerializeField] private WeaponPose _shotgunPose;
     [SerializeField] private WeaponPose _punchPose;
     [SerializeField] private GameObject _weaponArmPoint;
-    [SerializeField] private HandSprites _sprite;
-    private void Awake()
+    public void ChangeGun()
     {
-        Weapon weapon = _weaponArmPoint.GetComponentInChildren<Weapon>();
-        currentWeaponType =  weapon != null ? weapon.weapon : WeaponType.Hands;
-    }
-    private void Update()
-    {
+        GetCurrentWeapon();
         switch (currentWeaponType)
         {
             case WeaponType.Pistol:
@@ -39,10 +34,16 @@ public class ChangeWeapon : MonoBehaviour
                 break;
             default:
                 ApplyPose(_punchPose);
-                _handSprite.sprite = _sprite.fist;
-                _backHandSprite.sprite = _sprite.backFist;
                 break;
         }
+    }
+    private void Awake()
+    {
+        GetCurrentWeapon();
+    }
+    private void Update()
+    {
+        ChangeGun();
     }
     private void ApplyPose(WeaponPose pose)
     {
@@ -52,6 +53,12 @@ public class ChangeWeapon : MonoBehaviour
         _backHand.localRotation = Quaternion.Euler(pose.backHandRotation);
         _forearm.localRotation = Quaternion.Euler(pose.forearmRotation);
         _backForearm.localRotation = Quaternion.Euler(pose.backForearmRotation);
-
+        _handSprite.sprite = pose.fist;
+        _backHandSprite.sprite = pose.backFist;
+    }
+    private void GetCurrentWeapon()
+    {
+        Weapon weapon = _weaponArmPoint.GetComponentInChildren<Weapon>();
+        currentWeaponType = weapon != null ? weapon.weapon : WeaponType.Hands;
     }
 }
