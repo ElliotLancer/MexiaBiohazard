@@ -15,14 +15,16 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _currentAmmo = 10;
     [SerializeField] private int _reserveAmmo = 30;
     [SerializeField] private int _magazineSize = 20;
-    [SerializeField] private float _reloadTime = 3f;
+    [SerializeField] private float _reloadTime;
     [SerializeField] private Animator _animator;
     [SerializeField] private string _shootAnimationName;
     private IShootPattern _shootPattern;
     private bool _canShoot = true;
+    private Coroutine _reloadRoutine;
     public int CurrentAmmo => _currentAmmo;
     public int MaxAmmo => _magazineSize;
     public float torque = 120f;
+    public bool isReloading { get; private set; }
 
     private float lastShootTime;
     private void Awake()
@@ -42,7 +44,7 @@ public class Gun : MonoBehaviour
         {
             if (_currentAmmo < _magazineSize && _reserveAmmo > 0)
             {
-                StartCoroutine(ReloadRoutine());
+                Reload();
             }
         }
     }
@@ -86,7 +88,7 @@ public class Gun : MonoBehaviour
             shellRb.AddTorque(torque);
         }
     }
-    private void Reload()
+    private void UpdateAmmo()
     {
         int neededAmmo = _magazineSize - _currentAmmo;
         int ammoToReload = Mathf.Min(neededAmmo, _reserveAmmo);
@@ -94,13 +96,26 @@ public class Gun : MonoBehaviour
         _currentAmmo += ammoToReload;
         _reserveAmmo -= ammoToReload;
     }
+    private void Reload()
+    {
+        if (isReloading)
+            return;
+        _reloadRoutine = StartCoroutine(ReloadRoutine());
+    }
     private IEnumerator ReloadRoutine()
     {
+        isReloading = true;
         _animator.SetTrigger("reload");
         _canShoot = false;
         yield return new WaitForSeconds(_reloadTime);
-        Reload();
+        UpdateAmmo();
         _canShoot = true;
-
+        isReloading = false;
+    }
+    public void CancelReload()
+    {
+        if (_reloadRoutine != null)
+            StopCoroutine(_reloadRoutine);
+        isReloading = false;
     }
 }

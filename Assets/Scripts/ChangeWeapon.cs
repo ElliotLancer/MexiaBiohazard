@@ -43,7 +43,10 @@ public class ChangeWeapon : MonoBehaviour
 
         _currentGun = _weaponArmPoint.GetComponentInChildren<Gun>();
         if (_currentGun != null)
+        {
             _ammoUI.SetWeapon(_currentGun);
+            _currentGun.CancelReload();
+        }
 
         switch (currentWeaponType)
         {
