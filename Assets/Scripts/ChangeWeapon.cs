@@ -74,6 +74,10 @@ public class ChangeWeapon : MonoBehaviour
     {
         GetCurrentWeapon();
     }
+    private void Update()
+    {
+        ChangeGun();
+    }
     private void ApplyPose(WeaponPose pose)
     {
         _shoulder.localRotation = Quaternion.Euler(pose.shoulderRotation);
@@ -89,5 +93,6 @@ public class ChangeWeapon : MonoBehaviour
     {
         Weapon weapon = _weaponArmPoint.GetComponentInChildren<Weapon>();
         currentWeaponType = weapon != null ? weapon.weapon : WeaponType.Hands;
+        _currentGun = _weaponArmPoint.GetComponentInChildren<Gun>();
     }
 }

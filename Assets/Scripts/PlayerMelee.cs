@@ -11,7 +11,7 @@ public class PlayerMelee : MonoBehaviour
     private bool _canAttack;
     private void Update()
     {
-        if (Input.GetMouseButton(0) && _canAttack)
+        if (Input.GetMouseButton(0))
         {
             StartCoroutine(Attack());
         }

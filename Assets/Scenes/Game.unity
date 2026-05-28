@@ -1909,6 +1909,7 @@ MonoBehaviour:
   _meleeCombat: {fileID: 788623343}
   _weaponUI: {fileID: 1053701770}
   _ammoUI: {fileID: 1012509338}
+  _currentGun: {fileID: 0}
   _rect: {fileID: 898022245}
 --- !u!114 &360887734
 MonoBehaviour:
@@ -5681,7 +5682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1386454316
 Transform:
   m_ObjectHideFlags: 0
