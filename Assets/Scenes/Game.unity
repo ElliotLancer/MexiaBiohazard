@@ -840,7 +840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &156251212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,6 +1910,7 @@ MonoBehaviour:
   _weaponUI: {fileID: 1053701770}
   _ammoUI: {fileID: 1012509338}
   _currentGun: {fileID: 0}
+  _hands: {fileID: 2101798566}
   _rect: {fileID: 898022245}
 --- !u!114 &360887734
 MonoBehaviour:
@@ -2303,7 +2304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576773734}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.43837118, w: 0.89879405}
+  m_LocalRotation: {x: 0, y: 0, z: -0.41469333, w: 0.9099612}
   m_LocalPosition: {x: 0.056, y: -0.027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2311,7 +2312,7 @@ Transform:
   - {fileID: 609620745}
   - {fileID: 1327074709}
   m_Father: {fileID: 2101798565}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -52}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -49}
 --- !u!1 &597004745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,14 +2856,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609620744}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.72537434, w: 0.6883546}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7933534, w: 0.6087614}
   m_LocalPosition: {x: 0.54673266, y: 0.016473427, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1806629376}
   m_Father: {fileID: 576773736}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 93}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 105}
 --- !u!212 &609620746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3030,14 +3031,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774857531}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.36243805, w: 0.9320079}
+  m_LocalRotation: {x: 0, y: 0, z: 0.69465834, w: 0.71933985}
   m_LocalPosition: {x: 0.63237184, y: -0.031687222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1697988691}
   m_Father: {fileID: 1327074709}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 88}
 --- !u!212 &774857533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3139,8 +3140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackPoint: {fileID: 788623344}
   _attackRadius: 1
-  _attackCooldown: 2
+  _attackCooldown: 0.3
   _damage: 7
+  _hands: {fileID: 2101798566}
 --- !u!1 &806627355
 GameObject:
   m_ObjectHideFlags: 0
@@ -4624,7 +4626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1048677599
 Animator:
   serializedVersion: 7
@@ -5470,14 +5472,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327074708}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.30070576, w: 0.953717}
+  m_LocalRotation: {x: 0, y: 0, z: 0.095845714, w: 0.99539626}
   m_LocalPosition: {x: 0.15942445, y: 0.23828495, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 774857532}
   m_Father: {fileID: 576773736}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11}
 --- !u!212 &1327074710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6619,13 +6621,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697988690}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.23022692, w: 0.973137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6440347, y: 0.04075429, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 774857532}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -26.621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1697988692
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6670,7 +6672,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 2015880167, guid: cb4fbb304083c2e4595ea1abe61708d2, type: 3}
+  m_Sprite: {fileID: -1196327458, guid: cb4fbb304083c2e4595ea1abe61708d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6961,7 +6963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1746115590
 Rigidbody2D:
   serializedVersion: 5
@@ -7387,13 +7389,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806629375}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.3420201, w: 0.9396927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5256278, y: 0.046209395, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 609620745}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1806629377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7438,7 +7440,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: -286668636, guid: cb4fbb304083c2e4595ea1abe61708d2, type: 3}
+  m_Sprite: {fileID: -1196327458, guid: cb4fbb304083c2e4595ea1abe61708d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7983,6 +7985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101798565}
+  - component: {fileID: 2101798566}
   m_Layer: 0
   m_Name: WeaponArmPoint
   m_TagString: Untagged
@@ -8010,6 +8013,28 @@ Transform:
   - {fileID: 1386454316}
   m_Father: {fileID: 1656304442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2101798566
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101798564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 531636d854d0b4f42912f85a67b45120, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2104823551
 GameObject:
   m_ObjectHideFlags: 0

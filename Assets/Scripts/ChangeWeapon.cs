@@ -22,6 +22,7 @@ public class ChangeWeapon : MonoBehaviour
     [SerializeField] private WeaponUI _weaponUI;
     [SerializeField] private AmmoUI _ammoUI;
     [SerializeField] private Gun _currentGun;
+    [SerializeField] private Animator _hands;
 
     [SerializeField] private RectTransform _rect;
     public void ChangeGun()
@@ -31,10 +32,12 @@ public class ChangeWeapon : MonoBehaviour
         if (isHands)
         {
             _ammoUI.HideAmmoUI();
+            _hands.enabled = true;
         }
         else
         {
             _ammoUI.ShowAmmoUI();
+            _hands.enabled = false;
         }
         _meleeCombat.SetActive(isHands);
 
