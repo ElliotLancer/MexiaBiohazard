@@ -16,11 +16,12 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _reserveAmmo = 30;
     [SerializeField] private int _magazineSize = 20;
     [SerializeField] private float _reloadTime;
-    [SerializeField] private Animator _animator;
     [SerializeField] private string _shootAnimationName;
+    [SerializeField] private string _idleAnimationName;
     private IShootPattern _shootPattern;
     private bool _canShoot = true;
     private Coroutine _reloadRoutine;
+    public Animator _animator;
     public int CurrentAmmo => _currentAmmo;
     public int MaxAmmo => _magazineSize;
     public float torque = 120f;
@@ -116,6 +117,13 @@ public class Gun : MonoBehaviour
     {
         if (_reloadRoutine != null)
             StopCoroutine(_reloadRoutine);
+        _animator.ResetTrigger("reload");
         isReloading = false;
+        _canShoot = true;
+    }
+    public void SetAnimationToIdle()
+    {
+        _animator.Play(_idleAnimationName, 0, 0f);
+        _animator.Update(0f);
     }
 }

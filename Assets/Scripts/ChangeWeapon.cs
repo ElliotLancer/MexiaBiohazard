@@ -25,6 +25,24 @@ public class ChangeWeapon : MonoBehaviour
     [SerializeField] private Animator _hands;
 
     [SerializeField] private RectTransform _rect;
+    public void UpdatePose()
+    {
+        switch (currentWeaponType)
+        {
+            case WeaponType.Pistol:
+                ApplyPose(_pistolPose);
+                break;
+            case WeaponType.Rifle:
+                ApplyPose(_riflePose);
+                break;
+            case WeaponType.Shotgun:
+                ApplyPose(_shotgunPose);
+                break;
+            default:
+                ApplyPose(_punchPose);
+                break;
+        }
+    }
     public void ChangeGun()
     {
         GetCurrentWeapon();
@@ -46,30 +64,26 @@ public class ChangeWeapon : MonoBehaviour
         {
             _ammoUI.SetWeapon(_currentGun);
             _currentGun.CancelReload();
+            _currentGun.SetAnimationToIdle();
         }
-
         switch (currentWeaponType)
         {
             case WeaponType.Pistol:
-                ApplyPose(_pistolPose);
                 _weaponUI.weaponImage.sprite = _weaponUI.pistol;
                 _weaponUI.ChangeSlot(0);
                 _rect.sizeDelta = new Vector2(42, 31);
                 break;
             case WeaponType.Rifle:
-                ApplyPose(_riflePose);
                 _weaponUI.weaponImage.sprite = _weaponUI.rifle;
                 _weaponUI.ChangeSlot(1);
                 _rect.sizeDelta = new Vector2(89, 31);
                 break;
             case WeaponType.Shotgun:
-                ApplyPose(_shotgunPose);
                 _weaponUI.weaponImage.sprite = _weaponUI.shotgun;
                 _weaponUI.ChangeSlot(1);
                 _rect.sizeDelta = new Vector2(89, 31);
                 break;
             default:
-                ApplyPose(_punchPose);
                 _weaponUI.weaponImage.sprite = _weaponUI.hands;
                 _weaponUI.ChangeSlot(2);
                 _rect.sizeDelta = new Vector2(42, 31);
@@ -82,7 +96,7 @@ public class ChangeWeapon : MonoBehaviour
     }
     private void Update()
     {
-        ChangeGun();
+        UpdatePose();
     }
     private void ApplyPose(WeaponPose pose)
     {
