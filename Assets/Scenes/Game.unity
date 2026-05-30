@@ -2016,6 +2016,7 @@ MonoBehaviour:
   - {fileID: 1746115589}
   - {fileID: 1386454315}
   _currentWeapon: {fileID: 360887733}
+  _melee: {fileID: 788623345}
 --- !u!1 &414599013
 GameObject:
   m_ObjectHideFlags: 0
@@ -4770,8 +4771,9 @@ MonoBehaviour:
   _reserveAmmo: 30
   _magazineSize: 20
   _reloadTime: 3
-  _animator: {fileID: 1048677599}
   _shootAnimationName: PistolShoot
+  _idleAnimationName: 
+  _animator: {fileID: 1048677599}
   torque: 120
 --- !u!50 &1048677602
 Rigidbody2D:
@@ -7222,8 +7224,9 @@ MonoBehaviour:
   _reserveAmmo: 10
   _magazineSize: 10
   _reloadTime: 3.7
-  _animator: {fileID: 1746115596}
   _shootAnimationName: ShotgunShoot
+  _idleAnimationName: 
+  _animator: {fileID: 1746115596}
   torque: 120
 --- !u!114 &1746115595
 MonoBehaviour:
@@ -8550,8 +8553,9 @@ MonoBehaviour:
   _reserveAmmo: 30
   _magazineSize: 20
   _reloadTime: 3
-  _animator: {fileID: 2136387931}
   _shootAnimationName: RifleShoot
+  _idleAnimationName: 
+  _animator: {fileID: 2136387931}
   torque: 110
 --- !u!61 &2136387929
 BoxCollider2D:
