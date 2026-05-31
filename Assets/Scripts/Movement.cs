@@ -7,13 +7,14 @@ public class Movement : MonoBehaviour
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private Vector2 _crouchSize = new Vector2(1.13f, 3.7f);
     [SerializeField] private Vector2 _crouchOffset = new Vector2(0f, -0.25f);
+    [SerializeField] private Aim _aim;
 
     private Vector2 _standSize;
     private Vector2 _standOffset;
     private Rigidbody2D _rb;
     private float _moveInput;
-    public Animator animator;
     private bool _isCrouching = false;
+    public Animator animator;
     
     private void Start()
     {
@@ -23,9 +24,9 @@ public class Movement : MonoBehaviour
     }
     private void Update()
     {
-        _moveInput = Input.GetAxis("Horizontal");
-        float speed = Mathf.Abs(_moveInput);
-        animator.SetFloat("Speed", speed);
+        _moveInput = Input.GetAxisRaw("Horizontal");
+        float moveDirection = _aim.isFacingRight ? _moveInput : -_moveInput;
+        animator.SetFloat("Speed", moveDirection);
         _isCrouching = Input.GetKey(KeyCode.LeftControl);
         if (_isCrouching)
         {

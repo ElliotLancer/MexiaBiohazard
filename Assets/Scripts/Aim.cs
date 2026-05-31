@@ -12,8 +12,10 @@ public class Aim : MonoBehaviour
     [SerializeField] private float _headTiltPower = 10f;
     [SerializeField] private float _minHeadAngle = 0.4f;
     [SerializeField] private float _maxHeadAngle = 0.4f;
-    private bool _isOnRight;
     private HingeFlip _hinge;
+    private bool _isOnRight;
+    private bool isRight;
+    public bool isFacingRight => isRight;
 
     private void Start()
     {
@@ -34,7 +36,7 @@ public class Aim : MonoBehaviour
         {
             body.localScale = new Vector3(-1, 1, 1);
         }
-        bool isRight = mousePosition.x > transform.position.x ? true : false;
+        isRight = mousePosition.x > transform.position.x ? true : false;
         _meleeZone.FlipMeleeZone(isRight);
         if (isRight != _isOnRight)
         {
