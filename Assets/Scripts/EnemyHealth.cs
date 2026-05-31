@@ -1,10 +1,12 @@
 using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int _health = 70;
     [SerializeField] private DamagePopup _popupPrefab;
+    [SerializeField] private SortingGroup _sorting;
     private string _name;
     public void takeDamage(int damage)
     {
@@ -21,8 +23,9 @@ public class EnemyHealth : MonoBehaviour
     {
         GetComponent<EnemyRagdoll>().EnableRagdoll();
         int deadEnemyLayer = LayerMask.NameToLayer("DeadEnemy");
+        _sorting.sortingLayerName = "DeadEnemy";
+        _sorting.sortingOrder = 1;
         SetLayerRecursively(gameObject, deadEnemyLayer);
-        Debug.Log("enemy died");
     }
     private void SetLayerRecursively(GameObject obj, int layer)
     {

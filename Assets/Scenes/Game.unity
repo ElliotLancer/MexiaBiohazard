@@ -1654,6 +1654,7 @@ GameObject:
   - component: {fileID: 360887732}
   - component: {fileID: 360887733}
   - component: {fileID: 360887734}
+  - component: {fileID: 360887735}
   m_Layer: 9
   m_Name: Player2
   m_TagString: Player
@@ -1738,6 +1739,16 @@ MonoBehaviour:
   - {fileID: 360887723}
   - {fileID: 360887721}
   - {fileID: 360887731}
+  - {fileID: 360887733}
+  - {fileID: 360887734}
+  _guns:
+  - {fileID: 2136387928}
+  - {fileID: 1746115594}
+  - {fileID: 1048677601}
+  _gunAnimators:
+  - {fileID: 2136387931}
+  - {fileID: 1746115596}
+  - {fileID: 1048677599}
   _animator: {fileID: 360887728}
   _rifleAnimator: {fileID: 2136387931}
   _mainCollider: {fileID: 360887730}
@@ -2019,6 +2030,18 @@ MonoBehaviour:
   - {fileID: 1386454315}
   _currentWeapon: {fileID: 360887733}
   _melee: {fileID: 788623345}
+--- !u!210 &360887735
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360887719}
+  m_Enabled: 1
+  m_SortingLayerID: -1861341873
+  m_SortingLayer: 3
+  m_SortingOrder: 3
+  m_SortAtRoot: 0
 --- !u!1 &414599013
 GameObject:
   m_ObjectHideFlags: 0
@@ -4710,6 +4733,7 @@ GameObject:
   - component: {fileID: 1048677600}
   - component: {fileID: 1048677599}
   - component: {fileID: 1048677605}
+  - component: {fileID: 1048677606}
   m_Layer: 6
   m_Name: Pistol
   m_TagString: Weapon
@@ -4775,6 +4799,8 @@ MonoBehaviour:
   _reloadTime: 3
   _shootAnimationName: PistolShoot
   _idleAnimationName: 
+  _sortingLayerNumber: 2
+  _sorting: {fileID: 1048677606}
   _animator: {fileID: 1048677599}
   torque: 120
 --- !u!50 &1048677602
@@ -4883,6 +4909,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: 0
+--- !u!210 &1048677606
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048677598}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1050807527
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,6 +5453,18 @@ MonoBehaviour:
   - {fileID: 6189521515942907727}
   - {fileID: 6189521515942907726}
   - {fileID: 6189521515942907725}
+--- !u!210 &1170956334
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170956317}
+  m_Enabled: 1
+  m_SortingLayerID: -1861341873
+  m_SortingLayer: 3
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
 --- !u!1 &1183950604
 GameObject:
   m_ObjectHideFlags: 0
@@ -7048,13 +7098,14 @@ GameObject:
   - component: {fileID: 1746115594}
   - component: {fileID: 1746115596}
   - component: {fileID: 1746115597}
+  - component: {fileID: 1746115598}
   m_Layer: 6
   m_Name: Shotgun
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1746115590
 Rigidbody2D:
   serializedVersion: 5
@@ -7228,6 +7279,8 @@ MonoBehaviour:
   _reloadTime: 3.7
   _shootAnimationName: ShotgunShoot
   _idleAnimationName: 
+  _sortingLayerNumber: 1
+  _sorting: {fileID: 1746115598}
   _animator: {fileID: 1746115596}
   torque: 120
 --- !u!114 &1746115595
@@ -7279,6 +7332,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: 2
+--- !u!210 &1746115598
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746115589}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1753831989
 GameObject:
   m_ObjectHideFlags: 0
@@ -7769,14 +7834,6 @@ PrefabInstance:
       propertyPath: _moveSpeed
       value: 0.9
       objectReference: {fileID: 0}
-    - target: {fileID: 8950770876122604414, guid: c92da80ec162c6c45a83cefe60a1eec7, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8950770876122604414, guid: c92da80ec162c6c45a83cefe60a1eec7, type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7804,6 +7861,7 @@ GameObject:
   - component: {fileID: 2028564688}
   - component: {fileID: 2028564689}
   - component: {fileID: 2028564690}
+  - component: {fileID: 2028564691}
   m_Layer: 10
   m_Name: ZombieMan
   m_TagString: ZombieEnemy
@@ -7972,6 +8030,7 @@ MonoBehaviour:
   _resetPose: {fileID: 2028564690}
   _popupPrefab: {fileID: 4153618865414618206, guid: c92da80ec162c6c45a83cefe60a1eec7, type: 3}
   _maxPopupRange: {x: 1.5, y: 3, z: 0}
+  _sorting: {fileID: 2028564691}
 --- !u!114 &2028564687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8055,6 +8114,18 @@ MonoBehaviour:
   - {fileID: 1082005491}
   - {fileID: 347018773}
   - {fileID: 2119989213}
+--- !u!210 &2028564691
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028564674}
+  m_Enabled: 1
+  m_SortingLayerID: -1861341873
+  m_SortingLayer: 3
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
 --- !u!1 &2061691889
 GameObject:
   m_ObjectHideFlags: 0
@@ -8525,6 +8596,7 @@ GameObject:
   - component: {fileID: 2136387931}
   - component: {fileID: 2136387932}
   - component: {fileID: 2136387933}
+  - component: {fileID: 2136387934}
   m_Layer: 6
   m_Name: Rifle
   m_TagString: Weapon
@@ -8631,6 +8703,8 @@ MonoBehaviour:
   _reloadTime: 3
   _shootAnimationName: RifleShoot
   _idleAnimationName: 
+  _sortingLayerNumber: 1
+  _sorting: {fileID: 2136387934}
   _animator: {fileID: 2136387931}
   torque: 110
 --- !u!61 &2136387929
@@ -8753,6 +8827,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: 1
+--- !u!210 &2136387934
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136387925}
+  m_Enabled: 1
+  m_SortingLayerID: 1627357797
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!4 &89218209449052403
 Transform:
   m_ObjectHideFlags: 0
@@ -9378,6 +9464,7 @@ MonoBehaviour:
   _resetPose: {fileID: 8364025929040484324}
   _popupPrefab: {fileID: 4153618865414618206, guid: c92da80ec162c6c45a83cefe60a1eec7, type: 3}
   _maxPopupRange: {x: 1, y: 1.5, z: 0}
+  _sorting: {fileID: 0}
 --- !u!1 &5830627491383398837
 GameObject:
   m_ObjectHideFlags: 0
@@ -9506,6 +9593,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4089887835940068453, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      propertyPath: _sorting
+      value: 
+      objectReference: {fileID: 1170956334}
+    - target: {fileID: 4089887835940068453, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: _popupPrefab
       value: 
       objectReference: {fileID: 4153618865414618206, guid: c92da80ec162c6c45a83cefe60a1eec7, type: 3}
@@ -9539,6 +9630,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8750504800223695333, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1170956326}
+    - targetCorrespondingSourceObject: {fileID: 8750504800223695333, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1170956334}
   m_SourcePrefab: {fileID: 100100000, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
 --- !u!233 &6189521515942907725 stripped
 HingeJoint2D:

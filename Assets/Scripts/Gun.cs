@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using UnityEngine.Rendering;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
@@ -18,6 +19,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _reloadTime;
     [SerializeField] private string _shootAnimationName;
     [SerializeField] private string _idleAnimationName;
+    [SerializeField] private int _sortingLayerNumber;
+    [SerializeField] private SortingGroup _sorting;
     private IShootPattern _shootPattern;
     private bool _canShoot = true;
     private Coroutine _reloadRoutine;
@@ -125,5 +128,10 @@ public class Gun : MonoBehaviour
     {
         _animator.Play(_idleAnimationName, 0, 0f);
         _animator.Update(0f);
+    }
+    public void ChangeWeaponSortingLayer()
+    {
+        _sorting.sortingLayerName = "Weapon";
+        _sorting.sortingOrder = _sortingLayerNumber;
     }
 }

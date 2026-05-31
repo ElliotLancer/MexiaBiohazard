@@ -5,6 +5,8 @@ public class PlayerRagdoll : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D[] _bodyParts;
     [SerializeField] private MonoBehaviour[] _scripts;
+    [SerializeField] private Gun[] _guns;
+    [SerializeField] private Animator[] _gunAnimators;
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _rifleAnimator;
     [SerializeField] private Collider2D _mainCollider;
@@ -21,6 +23,15 @@ public class PlayerRagdoll : MonoBehaviour
         {
             bodypart.bodyType = RigidbodyType2D.Dynamic;
             bodypart.simulated = true;
+        }
+        foreach (Gun gun in _guns)
+        {
+            gun.ChangeWeaponSortingLayer();
+            gun.enabled = false;
+        }
+        foreach (Animator animator in _gunAnimators)
+        {
+            animator.enabled = false;
         }
         foreach (MonoBehaviour script in _scripts)
         {

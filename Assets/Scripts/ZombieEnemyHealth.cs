@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
 {
@@ -7,6 +8,7 @@ public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private ResetPose _resetPose;
     [SerializeField] private DamagePopup _popupPrefab;
     [SerializeField] private Vector3 _maxPopupRange;
+    [SerializeField] private SortingGroup _sorting;
     private string _name;
     public void takeDamage(int damage)
     {
@@ -25,6 +27,8 @@ public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
         if(_remove != null)
             _remove.Remove();
         int deadEnemyLayer = LayerMask.NameToLayer("DeadEnemy");
+        _sorting.sortingLayerName = "DeadEnemy";
+        _sorting.sortingOrder = 2;
         SetLayerRecursively(gameObject, deadEnemyLayer);
         Debug.Log($"{_name} died");
     }
