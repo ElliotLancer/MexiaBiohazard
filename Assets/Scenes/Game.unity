@@ -1775,6 +1775,7 @@ MonoBehaviour:
   _arm: {fileID: 2101798565}
   _head: {fileID: 825787181}
   body: {fileID: 1656304442}
+  _meleeZone: {fileID: 788623345}
   _headTiltPower: 52
   _minHeadAngle: -21
   _maxHeadAngle: 90
@@ -7052,7 +7053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1746115590
 Rigidbody2D:
   serializedVersion: 5
@@ -9849,7 +9850,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.021721542, y: 0.083297014}
+  m_Offset: {x: -0.016377687, y: 0.05923426}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9859,7 +9860,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6254395, y: 1.4561563}
+  m_Size: {x: 0.701638, y: 1.5042818}
   m_EdgeRadius: 0
 --- !u!212 &8017825787054649810
 SpriteRenderer:
@@ -9966,7 +9967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8364025929040484324
 MonoBehaviour:
   m_ObjectHideFlags: 0
