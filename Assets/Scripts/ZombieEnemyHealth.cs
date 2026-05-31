@@ -5,12 +5,16 @@ public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private RemoveBackParts _remove;
     [SerializeField] private int _health = 70;
     [SerializeField] private ResetPose _resetPose;
+    [SerializeField] private DamagePopup _popupPrefab;
+    [SerializeField] private Vector3 _maxPopupRange;
     private string _name;
     public void takeDamage(int damage)
     {
         _health -= damage;
+        Vector3 offset = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(_maxPopupRange.x, _maxPopupRange.y));
+        DamagePopup popup = Instantiate(_popupPrefab, transform.position + offset, Quaternion.identity);
+        popup.Setup(damage);
         _resetPose.Reset();
-        Debug.Log($"{_name} {damage} damage");
         if (_health <= 0)
         {
             GetComponent<EnemyZombieRagdoll>().EnableRagdoll();
