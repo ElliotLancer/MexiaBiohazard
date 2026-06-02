@@ -49,8 +49,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 2
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_AngularDamping: 0.4
+  m_GravityScale: 5
   m_Material: {fileID: 6200000, guid: 6e350c9ff885d714193f4e1501f5b9a5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -58,7 +58,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -147,8 +147,8 @@ Transform:
   m_GameObject: {fileID: 7385539014249099780}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.001259923, y: 0.00015997887, z: 0.0008461394}
-  m_LocalScale: {x: 0.79524, y: 0.79524, z: 0.79524}
+  m_LocalPosition: {x: 0.0088, y: 0.0042, z: 0.0008461394}
+  m_LocalScale: {x: 0.89581394, y: 0.88863295, z: 0.79524}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2697791342858564997}
@@ -194,8 +194,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1843754625
+  m_SortingLayer: 5
   m_SortingOrder: 9
   m_Sprite: {fileID: -9044998883933546132, guid: 9763578b26dee28469840047dac4fc1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
