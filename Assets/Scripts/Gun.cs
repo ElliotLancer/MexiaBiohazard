@@ -21,10 +21,12 @@ public class Gun : MonoBehaviour
     [SerializeField] private string _idleAnimationName;
     [SerializeField] private int _sortingLayerNumber;
     [SerializeField] private SortingGroup _sorting;
+    [SerializeField] private PlayerInteract _interact;
     private IShootPattern _shootPattern;
     private bool _canShoot = true;
     private Coroutine _reloadRoutine;
     public Animator _animator;
+
     public int CurrentAmmo => _currentAmmo;
     public int MaxAmmo => _magazineSize;
     public float torque = 120f;
@@ -63,6 +65,8 @@ public class Gun : MonoBehaviour
         _currentAmmo--;
         ShootBullet();
         SpawnShell();
+        _interact.CancelPutInBag();
+        
     }
 
     private void ShootBullet()

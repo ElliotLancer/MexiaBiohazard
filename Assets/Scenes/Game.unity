@@ -735,6 +735,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.38125, y: 1.1540408}
   m_EdgeRadius: 0
+--- !u!1 &110640854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110640855}
+  m_Layer: 0
+  m_Name: PutInBagProgressBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &110640855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110640854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132902281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4812,6 +4843,7 @@ MonoBehaviour:
   _idleAnimationName: 
   _sortingLayerNumber: 2
   _sorting: {fileID: 1048677606}
+  _interact: {fileID: 1753831992}
   _animator: {fileID: 1048677599}
   torque: 120
 --- !u!50 &1048677602
@@ -7305,6 +7337,7 @@ MonoBehaviour:
   _idleAnimationName: 
   _sortingLayerNumber: 1
   _sorting: {fileID: 1746115598}
+  _interact: {fileID: 1753831992}
   _animator: {fileID: 1746115596}
   torque: 12
 --- !u!114 &1746115595
@@ -7459,6 +7492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48eaeeaae9f48d4987958408d6749d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _putTime: 3
+  _progressCircle: {fileID: -2624956365893611268, guid: 9348663972b0077499f970345e193306, type: 3}
 --- !u!1 &1766557828
 GameObject:
   m_ObjectHideFlags: 0
@@ -8730,6 +8765,7 @@ MonoBehaviour:
   _idleAnimationName: 
   _sortingLayerNumber: 1
   _sorting: {fileID: 2136387934}
+  _interact: {fileID: 1753831992}
   _animator: {fileID: 2136387931}
   torque: 110
 --- !u!61 &2136387929
@@ -10088,7 +10124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8364025929040484324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10232,3 +10268,4 @@ SceneRoots:
   - {fileID: 2028564675}
   - {fileID: 89218209449052403}
   - {fileID: 1983048520}
+  - {fileID: 110640855}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6483910323287014924}
   - component: {fileID: 746878055325296431}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8426844121433116907}
   - component: {fileID: 8717844837797793707}
   - component: {fileID: 4480584961851029550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PistolBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
