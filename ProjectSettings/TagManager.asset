@@ -15,6 +15,7 @@ TagManager:
   - Test
   - Bullet
   - IgnoreBullet
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

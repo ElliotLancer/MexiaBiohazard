@@ -10,13 +10,8 @@ public class PlayerMelee : MonoBehaviour
     [SerializeField] private int _damage = 8;
     [SerializeField] private Animator _hands;
     [SerializeField] private Coroutine _attackRoutine;
-    private Vector3 _startPos;
     private bool _isAttacking;
     private bool _canAttack = true;
-    private void Awake()
-    {
-        _startPos = transform.localPosition;
-    }
     private void Update()
     {
         if (_canAttack)
@@ -75,9 +70,5 @@ public class PlayerMelee : MonoBehaviour
         _canAttack = true;
         _isAttacking = false;
         _hands.Play("PlayerPunchIdle", 0, 0f);
-    }
-    public void FlipMeleeZone(bool isRight)
-    {
-        transform.localPosition = new Vector3(isRight ? _startPos.x : -_startPos.x, _startPos.y, _startPos.z);
     }
 }

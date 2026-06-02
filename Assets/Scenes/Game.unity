@@ -1690,7 +1690,6 @@ Transform:
   m_Children:
   - {fileID: 1656304442}
   - {fileID: 1753831991}
-  - {fileID: 788623344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &360887721
@@ -1799,7 +1798,6 @@ MonoBehaviour:
   _arm: {fileID: 2101798565}
   _head: {fileID: 825787181}
   body: {fileID: 1656304442}
-  _meleeZone: {fileID: 788623345}
   _headTiltPower: 52
   _minHeadAngle: -21
   _maxHeadAngle: 90
@@ -3246,11 +3244,11 @@ Transform:
   m_GameObject: {fileID: 788623343}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.34, y: 1.28, z: -1.827027}
+  m_LocalPosition: {x: 1.172, y: 0.065, z: -1.8382376}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 360887720}
+  m_Father: {fileID: 2101798565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &788623345
 MonoBehaviour:
@@ -3265,8 +3263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackPoint: {fileID: 788623344}
-  _attackRadius: 1
-  _attackCooldown: 0.3
+  _attackRadius: 0.9
+  _attackCooldown: 0.57
   _damage: 7
   _hands: {fileID: 2101798566}
 --- !u!1 &806627355
@@ -4802,7 +4800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1893614604}
   shellPoint: {fileID: 1154317565}
-  bulletPrefab: {fileID: 9104916965378601876, guid: f4c916d90497bb846891da39e7e428c9, type: 3}
+  bulletPrefab: {fileID: 7265464144095547552, guid: a26cd34a7cd12a94ab438cabd3c525c3, type: 3}
   shellPrefab: {fileID: 660559034760368695, guid: a29e76010f1417d4ba8d1be03310442f, type: 3}
   _fireRate: 0.26
   _shellForce: 14
@@ -7131,7 +7129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1746115590
 Rigidbody2D:
   serializedVersion: 5
@@ -7308,7 +7306,7 @@ MonoBehaviour:
   _sortingLayerNumber: 1
   _sorting: {fileID: 1746115598}
   _animator: {fileID: 1746115596}
-  torque: 120
+  torque: 12
 --- !u!114 &1746115595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8275,6 +8273,7 @@ Transform:
   - {fileID: 1746115593}
   - {fileID: 1048677604}
   - {fileID: 1386454316}
+  - {fileID: 788623344}
   m_Father: {fileID: 1656304442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2101798566
@@ -9490,7 +9489,7 @@ MonoBehaviour:
   _resetPose: {fileID: 8364025929040484324}
   _popupPrefab: {fileID: 4153618865414618206, guid: c92da80ec162c6c45a83cefe60a1eec7, type: 3}
   _maxPopupRange: {x: 1, y: 1.5, z: 0}
-  _sorting: {fileID: 0}
+  _sorting: {fileID: 8364025929040484325}
 --- !u!1 &5830627491383398837
 GameObject:
   m_ObjectHideFlags: 0
@@ -10082,13 +10081,14 @@ GameObject:
   - component: {fileID: 2843503213407553962}
   - component: {fileID: 1306594510}
   - component: {fileID: 8364025929040484324}
+  - component: {fileID: 8364025929040484325}
   m_Layer: 0
   m_Name: ZombieWasp
   m_TagString: ZombieEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8364025929040484324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10104,6 +10104,18 @@ MonoBehaviour:
   _bodyParts:
   - {fileID: 2986436931282815556}
   - {fileID: 2368466889605805488}
+--- !u!210 &8364025929040484325
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364025929040484323}
+  m_Enabled: 1
+  m_SortingLayerID: -1861341873
+  m_SortingLayer: 3
+  m_SortingOrder: 3
+  m_SortAtRoot: 0
 --- !u!212 &8622913627405907167
 SpriteRenderer:
   m_ObjectHideFlags: 0

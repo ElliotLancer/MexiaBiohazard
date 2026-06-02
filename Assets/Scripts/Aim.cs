@@ -8,7 +8,6 @@ public class Aim : MonoBehaviour
     [SerializeField] private Transform _arm;
     [SerializeField] private Transform _head;
     [SerializeField] private Transform body;
-    [SerializeField] private PlayerMelee _meleeZone;
     [SerializeField] private float _headTiltPower = 10f;
     [SerializeField] private float _minHeadAngle = 0.4f;
     [SerializeField] private float _maxHeadAngle = 0.4f;
@@ -37,7 +36,6 @@ public class Aim : MonoBehaviour
             body.localScale = new Vector3(-1, 1, 1);
         }
         isRight = mousePosition.x > transform.position.x ? true : false;
-        _meleeZone.FlipMeleeZone(isRight);
         if (isRight != _isOnRight)
         {
             _isOnRight = isRight;
