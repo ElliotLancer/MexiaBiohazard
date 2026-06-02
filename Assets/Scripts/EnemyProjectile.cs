@@ -30,7 +30,16 @@ public class EnemyProjectile : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        if (other.CompareTag("Bullet"))
+        {
+            BulletHitProjectile();
+        }
         
+    }
+    public void BulletHitProjectile()
+    {
+        Debug.Log("hit bullet");
+        Destroy(gameObject);
     }
 
 

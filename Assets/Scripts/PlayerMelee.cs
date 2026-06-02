@@ -51,6 +51,11 @@ public class PlayerMelee : MonoBehaviour
             {
                 zombieHealth.takeDamage(_damage);
             }
+            EnemyProjectile projectile = enemy.GetComponent<EnemyProjectile>();
+            if(projectile != null)
+            {
+                projectile.BulletHitProjectile();
+            }
         }
         yield return new WaitForSeconds(_attackCooldown);
         _canAttack = true;
