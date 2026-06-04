@@ -7,33 +7,42 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private PutInBagUI _progressCircle;
     private float _putTimer;
     private PutInBag _enemyBag;
-    private PutInBagUI _currentProgressCirle;
+    private PutInBagUI _currentProgressCircle;
     private void Update()
     {
         if (_enemyBag == null)
         {
-            _putTimer = 0f;
             return;
         }
         if (Input.GetKey(KeyCode.B))
         {
-            _putTimer += Time.deltaTime;
-            _currentProgressCirle.SetProgress(_putTimer / _putTime);
-            if(_putTimer >= _putTime)
+            if (_currentProgressCircle == null)
             {
+                _currentProgressCircle = Instantiate(_progressCircle, _enemyBag.transform.position + Vector3.up, Quaternion.identity);
+                _currentProgressCircle.Setup(_enemyBag.EnemyBody);
+            }
+            _putTimer += Time.deltaTime;
+            _currentProgressCircle.SetProgress(_putTimer / _putTime);
+            if (_putTimer >= _putTime)
+            {
+                if (_currentProgressCircle != null)
+                {
+                    Destroy(_currentProgressCircle.gameObject);
+                    _currentProgressCircle = null;
+                }
                 _enemyBag.Put();
+
+                _currentProgressCircle = null;
                 _enemyBag = null;
                 _putTimer = 0f;
-                Destroy(_currentProgressCirle.gameObject);
-                _currentProgressCirle = null;
             }
         }
         else
         {
             _putTimer = 0f;
-            if(_currentProgressCirle != null)
+            if (_currentProgressCircle != null)
             {
-                _currentProgressCirle.SetProgress(0f);
+                _currentProgressCircle.SetProgress(0f);
             }
         }
 
@@ -47,12 +56,6 @@ public class PlayerInteract : MonoBehaviour
         if (inbag != null)
         {
             _enemyBag = inbag;
-            if(_currentProgressCirle != null)
-            {
-                Destroy(_currentProgressCirle.gameObject);
-            }
-            _currentProgressCirle = Instantiate(_progressCircle, inbag.transform.position + Vector3.up, Quaternion.identity);
-            _currentProgressCirle.Setup(inbag.transform);
             Debug.Log("Can put in bag");
         }
     }
@@ -64,9 +67,14 @@ public class PlayerInteract : MonoBehaviour
         PutInBag inbag = collision.GetComponentInParent<PutInBag>();
         if (inbag != null && inbag == _enemyBag)
         {
-            Destroy(_currentProgressCirle.gameObject);
-            _enemyBag = null;
+            if (_currentProgressCircle != null)
+            {
+                Destroy(_currentProgressCircle.gameObject);
+                _currentProgressCircle = null;
+            }
         }
+        _enemyBag = null;
+        _putTimer = 0f;
     }
     public void CancelPutInBag()
     {

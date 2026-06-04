@@ -56,6 +56,9 @@ TagManager:
   - name: DeadEnemy
     uniqueID: 3397684199
     locked: 0
+  - name: TrashBag
+    uniqueID: 3087248407
+    locked: 0
   - name: Player
     uniqueID: 1627357797
     locked: 0
