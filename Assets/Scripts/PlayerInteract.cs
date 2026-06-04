@@ -16,11 +16,6 @@ public class PlayerInteract : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.B))
         {
-            if (_currentProgressCircle == null)
-            {
-                _currentProgressCircle = Instantiate(_progressCircle, _enemyBag.transform.position + Vector3.up, Quaternion.identity);
-                _currentProgressCircle.Setup(_enemyBag.EnemyBody);
-            }
             _putTimer += Time.deltaTime;
             _currentProgressCircle.SetProgress(_putTimer / _putTime);
             if (_putTimer >= _putTime)
@@ -49,21 +44,25 @@ public class PlayerInteract : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer != LayerMask.NameToLayer("DeadEnemy"))
+        if (collision.gameObject.layer != LayerMask.NameToLayer("EnemyInteractZone"))
             return;
 
         PutInBag inbag = collision.GetComponentInParent<PutInBag>();
         if (inbag != null)
         {
             _enemyBag = inbag;
-            Debug.Log("Can put in bag");
+            if (_currentProgressCircle == null)
+            {
+                _currentProgressCircle = Instantiate(_progressCircle, _enemyBag.EnemyBody.position + Vector3.up, Quaternion.identity);
+                _currentProgressCircle.Setup(_enemyBag.EnemyBody);
+                _currentProgressCircle.SetProgress(0f);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer != LayerMask.NameToLayer("DeadEnemy"))
+        if (collision.gameObject.layer != LayerMask.NameToLayer("EnemyInteractZone"))
             return;
-
         PutInBag inbag = collision.GetComponentInParent<PutInBag>();
         if (inbag != null && inbag == _enemyBag)
         {

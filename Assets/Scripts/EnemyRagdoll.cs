@@ -9,6 +9,7 @@ public class EnemyRagdoll : MonoBehaviour
     [SerializeField] private Rigidbody2D _mainRb;
     [SerializeField] private Collider2D _mainCollider;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Collider2D _enemyInteractZone;
     private void Start()
     {
         DisableRagdoll();
@@ -16,6 +17,7 @@ public class EnemyRagdoll : MonoBehaviour
     public void EnableRagdoll()
     {
         _animator.enabled = false;
+        _enemyInteractZone.enabled = true;
         foreach(var script in _scripts)
         {
             script.enabled = false;
@@ -36,6 +38,7 @@ public class EnemyRagdoll : MonoBehaviour
     {
         _mainRb.simulated = true;
         _mainCollider.enabled = true;
+        _enemyInteractZone.enabled = false;
         foreach (var collider in _partColliders)
         {
             collider.enabled = true;

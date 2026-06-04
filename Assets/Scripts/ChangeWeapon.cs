@@ -86,7 +86,7 @@ public class ChangeWeapon : MonoBehaviour
             default:
                 _weaponUI.weaponImage.sprite = _weaponUI.hands;
                 _weaponUI.ChangeSlot(2);
-                _rect.sizeDelta = new Vector2(42, 31);
+                _rect.sizeDelta = new Vector2(29, 24);
                 break;
         }
     }

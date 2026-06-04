@@ -10,6 +10,7 @@ public class PlayerMelee : MonoBehaviour
     [SerializeField] private int _damage = 8;
     [SerializeField] private Animator _hands;
     [SerializeField] private Coroutine _attackRoutine;
+    [SerializeField] private PlayerInteract _playerInteract;
     private bool _isAttacking;
     private bool _canAttack = true;
     private void Update()
@@ -33,6 +34,7 @@ public class PlayerMelee : MonoBehaviour
         _isAttacking = true;
         _canAttack = false;
         _hands.Play("PlayerPunch", 0, 0f);
+        _playerInteract.CancelPutInBag();
         Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRadius);
         foreach (Collider2D enemy in enemies)
         {

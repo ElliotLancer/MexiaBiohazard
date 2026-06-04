@@ -10,6 +10,7 @@ public class EnemyZombieRagdoll : MonoBehaviour
     [SerializeField] private Collider2D[] _bodyPartColliders;
     [SerializeField] private MonoBehaviour[] _scripts;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Collider2D _enemyInteractZone;
     private void Start()
     {
         DisableRagdoll();
@@ -19,6 +20,7 @@ public class EnemyZombieRagdoll : MonoBehaviour
         _mainRigidbody.simulated = false;
         _mainCollider.enabled = false;
         _animator.enabled = false;
+        _enemyInteractZone.enabled = true;
         IEnemyDeathHandler[] enemies = GetComponents<IEnemyDeathHandler>();
         foreach(IEnemyDeathHandler enemy in enemies)
         {
@@ -43,8 +45,9 @@ public class EnemyZombieRagdoll : MonoBehaviour
         _mainRigidbody.simulated = true;
         _mainCollider.enabled = true;
         _animator.enabled = true;
+        _enemyInteractZone.enabled = false;
 
-        foreach(Rigidbody2D rb in _bodyPartRigidbody)
+        foreach (Rigidbody2D rb in _bodyPartRigidbody)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.simulated = true;

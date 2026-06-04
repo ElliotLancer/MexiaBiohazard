@@ -137,5 +137,6 @@ public class Gun : MonoBehaviour
     {
         _sorting.sortingLayerName = "Weapon";
         _sorting.sortingOrder = _sortingLayerNumber;
+        _sorting.sortAtRoot = true;
     }
 }

@@ -30,9 +30,18 @@ public class EnemyHealth : MonoBehaviour
     private void SetLayerRecursively(GameObject obj, int layer)
     {
         obj.layer = layer;
+
         foreach(Transform child in obj.transform)
         {
-            SetLayerRecursively(child.gameObject, layer);
+            if (child.CompareTag("Trigger"))
+            {
+                int triggerLayer = LayerMask.NameToLayer("EnemyInteractZone");
+                child.gameObject.layer = triggerLayer;
+            }
+            else
+            {
+                SetLayerRecursively(child.gameObject, layer);
+            }
         }
     }
     

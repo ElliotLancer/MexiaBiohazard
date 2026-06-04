@@ -40,7 +40,7 @@ public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
         {
             if (child.CompareTag("Trigger"))
             {
-                int triggerLayer = LayerMask.NameToLayer("Zone");
+                int triggerLayer = LayerMask.NameToLayer("EnemyInteractZone");
                 child.gameObject.layer = triggerLayer;
             }
             else
