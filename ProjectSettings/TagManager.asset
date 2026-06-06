@@ -16,6 +16,7 @@ TagManager:
   - Bullet
   - IgnoreBullet
   - EnemyProjectile
+  - Ground
   layers:
   - Default
   - TransparentFX

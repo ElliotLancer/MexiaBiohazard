@@ -34,6 +34,10 @@ public class EnemyProjectile : MonoBehaviour
         {
             BulletHitProjectile();
         }
+        if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
         
     }
     public void BulletHitProjectile()
