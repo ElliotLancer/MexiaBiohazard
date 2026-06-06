@@ -54,6 +54,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BuildingBackground
+    uniqueID: 3176237887
+    locked: 0
+  - name: Building
+    uniqueID: 3658109367
+    locked: 0
+  - name: Ground
+    uniqueID: 2748737707
+    locked: 0
   - name: DeadEnemy
     uniqueID: 3397684199
     locked: 0
@@ -62,6 +71,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1627357797
+    locked: 0
+  - name: Bullet
+    uniqueID: 1236598211
     locked: 0
   - name: Enemy
     uniqueID: 2433625423
