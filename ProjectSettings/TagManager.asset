@@ -35,7 +35,7 @@ TagManager:
   - Bag
   - Zone
   - EnemyInteractZone
-  - 
+  - Money
   - 
   - 
   - 
@@ -83,6 +83,9 @@ TagManager:
     locked: 0
   - name: Shell
     uniqueID: 1843754625
+    locked: 0
+  - name: Money
+    uniqueID: 1555248991
     locked: 0
   - name: UI
     uniqueID: 1360669471

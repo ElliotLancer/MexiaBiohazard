@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 50
   _lifeTime: 3
-  _damage: 500
+  _damage: 6
 --- !u!96 &4480584961851029550
 TrailRenderer:
   serializedVersion: 3

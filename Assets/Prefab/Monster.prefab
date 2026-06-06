@@ -1135,6 +1135,7 @@ GameObject:
   - component: {fileID: 4733389612790486172}
   - component: {fileID: 2945924004905675348}
   - component: {fileID: 8450452971208389236}
+  - component: {fileID: -6102672540367086997}
   m_Layer: 10
   m_Name: Monster
   m_TagString: Enemy
@@ -1323,7 +1324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b921b0175b67145bd3474eeefbd26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4343352928943509222, guid: 6d0d851e3766c0642a3e58096d9510a2, type: 3}
+  _bagPrefab: {fileID: 4343352928943509222, guid: 6d0d851e3766c0642a3e58096d9510a2, type: 3}
+  _money: {fileID: -6102672540367086997}
   _spawnPoint: {fileID: 7339937647400941053}
 --- !u!114 &2945924004905675348
 MonoBehaviour:
@@ -1350,9 +1352,29 @@ SortingGroup:
   m_GameObject: {fileID: 8750504800223695333}
   m_Enabled: 1
   m_SortingLayerID: -1861341873
-  m_SortingLayer: 4
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_SortAtRoot: 0
+--- !u!114 &-6102672540367086997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750504800223695333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fa6aa9e5aefb34096035037bfaf71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coin: {fileID: 6632845887644795674, guid: 8bd2eccd6017d834c87bdb3f1556efed, type: 3}
+  _dollar: {fileID: 1289586648428117804, guid: e9ab276830577574099343b65c6ef199, type: 3}
+  _coinChance: 0.6
+  _dollarChance: 0.3
+  _coinMin: 1
+  _coinMax: 8
+  _dollarMax: 4
+  _dollarMin: 0
 --- !u!1 &9017997426362746222
 GameObject:
   m_ObjectHideFlags: 0

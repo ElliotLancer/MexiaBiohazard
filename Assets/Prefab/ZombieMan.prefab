@@ -1026,6 +1026,7 @@ GameObject:
   - component: {fileID: 3242232563359309834}
   - component: {fileID: 2302193595235359825}
   - component: {fileID: 4702868568050951705}
+  - component: {fileID: -94732516736289111}
   - component: {fileID: 4590661094025445890}
   m_Layer: 10
   m_Name: ZombieMan
@@ -1243,7 +1244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b921b0175b67145bd3474eeefbd26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4343352928943509222, guid: 6d0d851e3766c0642a3e58096d9510a2, type: 3}
+  _bagPrefab: {fileID: 4343352928943509222, guid: 6d0d851e3766c0642a3e58096d9510a2, type: 3}
+  _money: {fileID: -94732516736289111}
   _spawnPoint: {fileID: 1579821625736753160}
 --- !u!114 &2302193595235359825
 MonoBehaviour:
@@ -1280,6 +1282,26 @@ MonoBehaviour:
   - {fileID: 7544260976993827063}
   - {fileID: 1114227248508695695}
   - {fileID: 8746355241149410893}
+--- !u!114 &-94732516736289111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409026244894012855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fa6aa9e5aefb34096035037bfaf71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coin: {fileID: 6632845887644795674, guid: 8bd2eccd6017d834c87bdb3f1556efed, type: 3}
+  _dollar: {fileID: 1289586648428117804, guid: e9ab276830577574099343b65c6ef199, type: 3}
+  _coinChance: 0.5
+  _dollarChance: 0.4
+  _coinMin: 1
+  _coinMax: 8
+  _dollarMax: 4
+  _dollarMin: 1
 --- !u!210 &4590661094025445890
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -1289,7 +1311,7 @@ SortingGroup:
   m_GameObject: {fileID: 2409026244894012855}
   m_Enabled: 1
   m_SortingLayerID: -1861341873
-  m_SortingLayer: 4
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_SortAtRoot: 0
 --- !u!1 &3238176406305524833
