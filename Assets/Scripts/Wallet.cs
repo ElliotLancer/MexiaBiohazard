@@ -10,6 +10,6 @@ public class Wallet : MonoBehaviour
     }
     private void Update()
     {
-        _moneyText.text = Coins + "";
+        _moneyText.text = $"{Coins}";
     }
 }

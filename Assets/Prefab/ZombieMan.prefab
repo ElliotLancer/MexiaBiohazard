@@ -369,7 +369,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.87299985, y: -0.024000049}
+  m_ConnectedAnchor: {x: -0.8730003, y: -0.0239999}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -739,7 +739,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.039000034, y: 0.059000015}
+  m_ConnectedAnchor: {x: -0.038999557, y: 0.059000015}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -951,7 +951,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.082999706, y: 1.6050001}
+  m_ConnectedAnchor: {x: 0.08300018, y: 1.6050001}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -1841,7 +1841,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09599972, y: 1.2890002}
+  m_ConnectedAnchor: {x: 0.09600067, y: 1.2890002}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
