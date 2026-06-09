@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +14,68 @@ public class Store : MonoBehaviour
 
     [SerializeField] private GameObject _primaryPanel;
     [SerializeField] private GameObject _secondaryPanel;
+
+    [SerializeField] private WeaponShopItem _selectedWeapon;
+    [SerializeField] private WeaponShopItem _selectedPrimaryWeapon;
+    [SerializeField] private WeaponShopItem _selectedSecondaryWeapon;
+    [SerializeField] private WeaponShopItem _defaultSecondaryWeapon;
+
+    [SerializeField] private TMP_Text _priceText;
+    [SerializeField] private TMP_Text _buttonText;
+    private void Start()
+    {
+        _selectedSecondaryWeapon = _defaultSecondaryWeapon;
+
+        _defaultSecondaryWeapon.OnClickSecondary();
+    }
+    public void SelectPrimaryWeapon(WeaponShopItem weapon)
+    {
+        _selectedPrimaryWeapon = weapon;
+        _selectedWeapon = weapon;
+        UpdateSelectedWeaponUI();
+    }
+    public void SelectSecondaryWeapon(WeaponShopItem weapon)
+    {
+        _selectedSecondaryWeapon = weapon;
+        _selectedWeapon = weapon;
+
+        UpdateSelectedWeaponUI();
+    }
+    public void UpdateSelectedWeaponUI()
+    {
+        if (_selectedWeapon == null)
+            return;
+
+        if (!_selectedWeapon.Owned)
+        {
+            _priceText.text = _selectedWeapon.Price + "$";
+            _buttonText.text = "Buy";
+        }
+        else
+        {
+            _priceText.text = "";
+            _buttonText.text =
+                _selectedWeapon.Equiped
+                ? "Unequip"
+                : "Equip";
+        }
+    }
+    public void BuyCurrentWeapon()
+    {
+        if (_selectedWeapon != null)
+        {
+            _selectedWeapon.OnButtonClick();
+            UpdateSelectedWeaponUI();
+        }
+    }
     public void ShowPrimary()
     {
         _currentPrimaryWeapon.SetActive(true);
         _currentSecondaryWeapon.SetActive(false);
         _primaryPanel.SetActive(true);
         _secondaryPanel.SetActive(false);
+        _selectedWeapon = _selectedPrimaryWeapon;
+        UpdateSelectedWeaponUI();
     }
     public void ShowSecondary()
     {
@@ -26,6 +83,8 @@ public class Store : MonoBehaviour
         _currentPrimaryWeapon.SetActive(false);
         _secondaryPanel.SetActive(true);
         _primaryPanel.SetActive(false);
+        _selectedWeapon = _selectedSecondaryWeapon;
+        UpdateSelectedWeaponUI();
     }
     public void ChangePrimaryWeapon(Sprite sprite, Vector2 rect)
     {
