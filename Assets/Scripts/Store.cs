@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,29 +23,64 @@ public class Store : MonoBehaviour
 
     [SerializeField] private TMP_Text _priceText;
     [SerializeField] private TMP_Text _buttonText;
+    [SerializeField] private TMP_Text _weaponName;
+    [SerializeField] private WeaponShopItem[] _primaryWeapons;
+
     private void Start()
     {
         _selectedSecondaryWeapon = _defaultSecondaryWeapon;
 
         _defaultSecondaryWeapon.OnClickSecondary();
+
+        PlayerData.coins = PlayerPrefs.GetInt("Coins", 0);
+
+        string primaryWeaponId = PlayerPrefs.GetString("PrimaryWeapon", "");
+
+        foreach (WeaponShopItem weapon in _primaryWeapons)
+        {
+            if (weapon.WeaponId == primaryWeaponId)
+            {
+                _selectedPrimaryWeapon = weapon;
+                break;
+            }
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            Debug.Log("Prefs deleted");
+        }
     }
     public void SelectPrimaryWeapon(WeaponShopItem weapon)
     {
         _selectedPrimaryWeapon = weapon;
         _selectedWeapon = weapon;
+        ChangePrimaryWeapon(
+        weapon.WeaponSprite,
+        weapon.WeaponSize);
         UpdateSelectedWeaponUI();
     }
     public void SelectSecondaryWeapon(WeaponShopItem weapon)
     {
         _selectedSecondaryWeapon = weapon;
         _selectedWeapon = weapon;
-
+        ChangeSecondaryWeapon(
+        weapon.WeaponSprite,
+        weapon.WeaponSize);
         UpdateSelectedWeaponUI();
     }
     public void UpdateSelectedWeaponUI()
     {
         if (_selectedWeapon == null)
+        {
+            _weaponName.text = "none";
+            _buttonText.text = "no weapon";
             return;
+        }
+        _weaponName.text = _selectedWeapon.WeaponName;
 
         if (!_selectedWeapon.Owned)
         {
@@ -59,6 +95,10 @@ public class Store : MonoBehaviour
                 ? "Unequip"
                 : "Equip";
         }
+        Debug.Log(
+            _selectedWeapon.WeaponName +
+            " Owned=" + _selectedWeapon.Owned +
+            " Equipped=" + _selectedWeapon.Equiped);
     }
     public void BuyCurrentWeapon()
     {
@@ -74,8 +114,15 @@ public class Store : MonoBehaviour
         _currentSecondaryWeapon.SetActive(false);
         _primaryPanel.SetActive(true);
         _secondaryPanel.SetActive(false);
-        _selectedWeapon = _selectedPrimaryWeapon;
-        UpdateSelectedWeaponUI();
+        if (_selectedPrimaryWeapon != null)
+        {
+            _selectedPrimaryWeapon.OnClickPrimary();
+        }
+        else
+        {
+            _selectedWeapon = null;
+            UpdateSelectedWeaponUI();
+        }
     }
     public void ShowSecondary()
     {

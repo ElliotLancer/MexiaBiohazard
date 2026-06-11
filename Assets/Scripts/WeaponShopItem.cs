@@ -8,14 +8,28 @@ public class WeaponShopItem : MonoBehaviour
     public int Price => _price;
     public bool Owned => _owned;
     public bool Equiped => _equiped;
+    public string WeaponName => _weaponName;
+    public string WeaponId => _weaponId;
+    public Sprite WeaponSprite => _weaponSprite;
+    public Vector2 WeaponSize => _widthAndHeight;
 
+    [SerializeField] private ShopWeaponType _weaponType;
     [SerializeField] private Vector2 _widthAndHeight;
     [SerializeField] private Store _store;
     [SerializeField] private Sprite _weaponSprite;
-    
     [SerializeField] private int _price;
-    [SerializeField] private bool _owned = false;
-    private bool _equiped = false;
+    [SerializeField] private bool _owned;
+    [SerializeField] private string _weaponName;
+    [SerializeField] private string _weaponId;
+    private bool _equiped;
+    private void Awake()
+    {
+        _owned = PlayerPrefs.GetInt(_weaponId + "_Owned", _owned ? 1 : 0) == 1;
+        _equiped = PlayerPrefs.GetInt(_weaponId + "_Equipped", 0) == 1;
+        string secondaryWeaponId = PlayerPrefs.GetString("SecondaryWeapon", "");
+        if (_weaponId == secondaryWeaponId)
+            _equiped = true;
+    }
     public void OnClickPrimary()
     {
         _store.SelectPrimaryWeapon(this);
@@ -43,9 +57,24 @@ public class WeaponShopItem : MonoBehaviour
             return;
         PlayerData.coins -= _price;
         _owned = true;
+        PlayerPrefs.SetInt("Coins", PlayerData.coins);
+        PlayerPrefs.SetInt(_weaponId + "_Owned", 1);
+        PlayerPrefs.Save();
     }
     private void Equip()
     {
         _equiped = !_equiped;
+        if (_weaponType == ShopWeaponType.Primary)
+        {
+            _store.SelectPrimaryWeapon(this);
+            PlayerPrefs.SetString("PrimaryWeapon", _weaponId);
+        }
+        else
+        {
+            _store.SelectSecondaryWeapon(this);
+            PlayerPrefs.SetString("SecondaryWeapon", _weaponId);
+        }
+        PlayerPrefs.SetInt(_weaponId + "_Equipped", _equiped ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }

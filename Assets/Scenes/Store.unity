@@ -1157,11 +1157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13ffcb59564a2e4cb662b297135c6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 1
   _widthAndHeight: {x: 90, y: 80}
   _store: {fileID: 1085276450}
   _weaponSprite: {fileID: 9022776227349139295, guid: ad2a133330c48b641b5d926b2dc9f23f, type: 3}
   _price: 50
   _owned: 1
+  _weaponName: Pistol
+  _weaponId: pistol
 --- !u!1 &1062477175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1315,10 @@ MonoBehaviour:
   _defaultSecondaryWeapon: {fileID: 976691773}
   _priceText: {fileID: 8562603}
   _buttonText: {fileID: 1521855674}
+  _weaponName: {fileID: 1218516610}
+  _primaryWeapons:
+  - {fileID: 1436221360}
+  - {fileID: 1401704519}
 --- !u!1 &1110462746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 311, y: 169}
+  m_AnchoredPosition: {x: 311, y: 149.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218516610
@@ -2085,11 +2092,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13ffcb59564a2e4cb662b297135c6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 0
   _widthAndHeight: {x: 150, y: 66}
   _store: {fileID: 1085276450}
   _weaponSprite: {fileID: 1857872435739784306, guid: ad2a133330c48b641b5d926b2dc9f23f, type: 3}
   _price: 200
   _owned: 0
+  _weaponName: Shotgun
+  _weaponId: shotgun
 --- !u!1 &1403067833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,11 +2397,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13ffcb59564a2e4cb662b297135c6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 0
   _widthAndHeight: {x: 167, y: 69}
   _store: {fileID: 1085276450}
   _weaponSprite: {fileID: -6650775266713985481, guid: ad2a133330c48b641b5d926b2dc9f23f, type: 3}
   _price: 100
   _owned: 0
+  _weaponName: Rifle
+  _weaponId: rifle
 --- !u!1 &1521855672
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,7 +2807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
