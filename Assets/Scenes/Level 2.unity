@@ -3810,6 +3810,10 @@ PrefabInstance:
       propertyPath: _weaponUI
       value: 
       objectReference: {fileID: 555586639}
+    - target: {fileID: 3429016780185485177, guid: 6a9be78797d23694881c80d98c3bd911, type: 3}
+      propertyPath: _weaponUI
+      value: 
+      objectReference: {fileID: 555586639}
     - target: {fileID: 3728224651938493780, guid: 6a9be78797d23694881c80d98c3bd911, type: 3}
       propertyPath: _moneyText
       value: 

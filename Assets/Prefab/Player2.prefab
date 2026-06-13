@@ -3795,9 +3795,11 @@ MonoBehaviour:
   _weapons:
   - {fileID: 197753340955238305}
   - {fileID: 6382404779329440069}
+  - {fileID: 1016644827976511792}
   - {fileID: 1105685976195959836}
   _currentWeapon: {fileID: 3424113706114913977}
   _melee: {fileID: 8465470083203697080}
+  _weaponUI: {fileID: 0}
 --- !u!210 &1146522431101155337
 SortingGroup:
   m_ObjectHideFlags: 0

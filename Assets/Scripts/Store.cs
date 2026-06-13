@@ -29,6 +29,13 @@ public class Store : MonoBehaviour
 
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("SecondaryWeapon"))
+        {
+            PlayerPrefs.SetString("SecondaryWeapon", "pistol");
+            PlayerPrefs.SetInt("pistol_Equipped", 1);
+            PlayerPrefs.Save();
+        }
+
         _selectedSecondaryWeapon = _defaultSecondaryWeapon;
 
         _defaultSecondaryWeapon.OnClickSecondary();

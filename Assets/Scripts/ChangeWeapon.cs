@@ -70,22 +70,22 @@ public class ChangeWeapon : MonoBehaviour
         {
             case WeaponType.Pistol:
                 _weaponUI.weaponImage.sprite = _weaponUI.pistol;
-                _weaponUI.ChangeSlot(0);
+                _weaponUI.ChangeSlot(1);
                 _rect.sizeDelta = new Vector2(42, 31);
                 break;
             case WeaponType.Rifle:
                 _weaponUI.weaponImage.sprite = _weaponUI.rifle;
-                _weaponUI.ChangeSlot(1);
+                _weaponUI.ChangeSlot(2);
                 _rect.sizeDelta = new Vector2(89, 31);
                 break;
             case WeaponType.Shotgun:
                 _weaponUI.weaponImage.sprite = _weaponUI.shotgun;
-                _weaponUI.ChangeSlot(1);
+                _weaponUI.ChangeSlot(2);
                 _rect.sizeDelta = new Vector2(89, 31);
                 break;
             default:
                 _weaponUI.weaponImage.sprite = _weaponUI.hands;
-                _weaponUI.ChangeSlot(2);
+                _weaponUI.ChangeSlot(0);
                 _rect.sizeDelta = new Vector2(29, 24);
                 break;
         }

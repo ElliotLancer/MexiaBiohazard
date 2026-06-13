@@ -1319,6 +1319,8 @@ MonoBehaviour:
   _primaryWeapons:
   - {fileID: 1436221360}
   - {fileID: 1401704519}
+  _secondaryWeapons:
+  - {fileID: 976691773}
 --- !u!1 &1110462746
 GameObject:
   m_ObjectHideFlags: 0

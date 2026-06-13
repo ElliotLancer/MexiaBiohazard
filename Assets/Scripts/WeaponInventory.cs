@@ -1,23 +1,49 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class WeaponInventory : MonoBehaviour
 {
     [SerializeField] private GameObject[] _weapons;
     [SerializeField] private ChangeWeapon _currentWeapon;
     [SerializeField] private PlayerMelee _melee;
+    [SerializeField] private WeaponUI _weaponUI;
+
+    private List<int> _availableWeapons = new();
+    private int _currentAvailableIndex = 0;
     private int _currentIndex = 0;
     private void Start()
     {
-        for (int i = 0; i < _weapons.Length; i++)
+        string primaryWeapon = PlayerPrefs.GetString("PrimaryWeapon", "");
+
+        string secondaryWeapon = PlayerPrefs.GetString("SecondaryWeapon", "pistol");
+
+        bool hasPrimary = primaryWeapon == "shotgun" || primaryWeapon == "rifle";
+
+        _weaponUI.slots[2].gameObject.SetActive(hasPrimary);
+
+        _availableWeapons.Clear();
+
+        _availableWeapons.Add(0);
+
+        if (primaryWeapon == "shotgun")
+            _availableWeapons.Add(1);
+
+        if (primaryWeapon == "rifle")
+            _availableWeapons.Add(2);
+
+        _availableWeapons.Add(3);
+
+        foreach (GameObject weapon in _weapons)
         {
-            if (_weapons[i].activeSelf)
-            {
-                _currentIndex = i;
-                break;
-            }
+            weapon.SetActive(false);
         }
-        Debug.Log(_currentIndex);
+
+        _currentAvailableIndex = 0;
+        _currentIndex = _availableWeapons[_currentAvailableIndex];
+
+        _weapons[_currentIndex].SetActive(true);
+
         _currentWeapon.ChangeGun();
     }
     public void ChangeWeaponByQueue()
@@ -33,10 +59,12 @@ public class WeaponInventory : MonoBehaviour
 
         _weapons[_currentIndex].SetActive(false);
 
-        _currentIndex++;
+        _currentAvailableIndex++;
 
-        if (_currentIndex >= _weapons.Length)
-            _currentIndex = 0;
+        if (_currentAvailableIndex >= _availableWeapons.Count)
+            _currentAvailableIndex = 0;
+
+        _currentIndex = _availableWeapons[_currentAvailableIndex];
 
         _weapons[_currentIndex].SetActive(true);
 
@@ -71,12 +99,16 @@ public class WeaponInventory : MonoBehaviour
             ChangeWeaponByQueue();
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            ChangeWeaponByIndex(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            ChangeWeaponByIndex(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            ChangeWeaponByIndex(2);
-        if (Input.GetKeyDown(KeyCode.Alpha4))
             ChangeWeaponByIndex(3);
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            ChangeWeaponByIndex(0);
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (_availableWeapons.Contains(1))
+                ChangeWeaponByIndex(1);
+
+            else if (_availableWeapons.Contains(2))
+                ChangeWeaponByIndex(2);
+        }
     }
 }
