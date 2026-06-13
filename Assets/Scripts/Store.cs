@@ -25,6 +25,7 @@ public class Store : MonoBehaviour
     [SerializeField] private TMP_Text _buttonText;
     [SerializeField] private TMP_Text _weaponName;
     [SerializeField] private WeaponShopItem[] _primaryWeapons;
+    [SerializeField] private WeaponShopItem[] _secondaryWeapons;
 
     private void Start()
     {
@@ -142,5 +143,19 @@ public class Store : MonoBehaviour
     {
         _currentSecondaryWeaponImage.sprite = sprite;
         _secondaryRect.sizeDelta = rect;
+    }
+    public void UnequipAllPrimary()
+    {
+        foreach (WeaponShopItem weapon in _primaryWeapons)
+        {
+            weapon.SetEquipped(false);
+        }
+    }
+    public void UnequipAllSecondary()
+    {
+        foreach (WeaponShopItem weapon in _secondaryWeapons)
+        {
+            weapon.SetEquipped(false);
+        }
     }
 }

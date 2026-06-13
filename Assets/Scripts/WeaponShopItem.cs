@@ -63,18 +63,39 @@ public class WeaponShopItem : MonoBehaviour
     }
     private void Equip()
     {
-        _equiped = !_equiped;
-        if (_weaponType == ShopWeaponType.Primary)
+        if (!_equiped)
         {
-            _store.SelectPrimaryWeapon(this);
-            PlayerPrefs.SetString("PrimaryWeapon", _weaponId);
+            if (_weaponType == ShopWeaponType.Primary)
+            {
+                _store.UnequipAllPrimary();
+
+                PlayerPrefs.SetString("PrimaryWeapon", _weaponId);
+
+                _store.SelectPrimaryWeapon(this);
+            }
+            else
+            {
+                _store.UnequipAllSecondary();
+
+                PlayerPrefs.SetString("SecondaryWeapon", _weaponId);
+
+                _store.SelectSecondaryWeapon(this);
+            }
+            _equiped = true;
+            PlayerPrefs.SetInt(_weaponId + "_Equipped", 1);
         }
         else
         {
-            _store.SelectSecondaryWeapon(this);
-            PlayerPrefs.SetString("SecondaryWeapon", _weaponId);
+            _equiped = false;
+            PlayerPrefs.SetInt(_weaponId + "_Equipped", 0);
         }
-        PlayerPrefs.SetInt(_weaponId + "_Equipped", _equiped ? 1 : 0);
+
+        PlayerPrefs.Save();
+    }
+    public void SetEquipped(bool value)
+    {
+        _equiped = value;
+        PlayerPrefs.SetInt(WeaponId + "_Equipped", _equiped ? 1 : 0);
         PlayerPrefs.Save();
     }
 }
