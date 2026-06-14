@@ -22,17 +22,23 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _sortingLayerNumber;
     [SerializeField] private SortingGroup _sorting;
     [SerializeField] private PlayerInteract _interact;
+    [SerializeField] private Weapon _weapon;
     private IShootPattern _shootPattern;
     private bool _canShoot = true;
     private Coroutine _reloadRoutine;
     public Animator _animator;
-
+    public int ReserveAmmo => _reserveAmmo;
     public int CurrentAmmo => _currentAmmo;
     public int MaxAmmo => _magazineSize;
     public float torque = 120f;
     public bool isReloading { get; private set; }
+    public Weapon CurrentWeaponType => _weapon;
 
     private float lastShootTime;
+    private void Start()
+    {
+        SaveAmmo();
+    }
     private void Awake()
     {
         _shootPattern = GetComponent<IShootPattern>();
@@ -53,6 +59,8 @@ public class Gun : MonoBehaviour
                 Reload();
             }
         }
+        Debug.Log("Reserve = " + _reserveAmmo);
+        Debug.Log("PlayerData = " + PlayerData.pistolAmmo);
     }
 
     private void Shoot()
@@ -103,12 +111,30 @@ public class Gun : MonoBehaviour
 
         _currentAmmo += ammoToReload;
         _reserveAmmo -= ammoToReload;
+
+        SaveAmmo();
     }
     private void Reload()
     {
         if (isReloading)
             return;
         _reloadRoutine = StartCoroutine(ReloadRoutine());
+    }
+
+    private void SaveAmmo()
+    {
+        switch (_weapon.weapon)
+        {
+            case WeaponType.Pistol:
+                PlayerData.pistolAmmo = _reserveAmmo;
+                break;
+            case WeaponType.Rifle:
+                PlayerData.rifleAmmo = _reserveAmmo;
+                break;
+            case WeaponType.Shotgun:
+                PlayerData.shotgunAmmo = _reserveAmmo;
+                break;
+        }
     }
     private IEnumerator ReloadRoutine()
     {
@@ -138,5 +164,10 @@ public class Gun : MonoBehaviour
         _sorting.sortingLayerName = "Weapon";
         _sorting.sortingOrder = _sortingLayerNumber;
         _sorting.sortAtRoot = true;
+    }
+    public void AddAmmo(int amount)
+    {
+        _reserveAmmo += amount;
+        SaveAmmo();
     }
 }

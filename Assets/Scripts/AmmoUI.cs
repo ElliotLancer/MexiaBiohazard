@@ -31,7 +31,7 @@ public class AmmoUI : MonoBehaviour
         }
         else
         {
-            _ammoText.text = _gun.CurrentAmmo + "/" + _gun.MaxAmmo;
+            _ammoText.text = _gun.CurrentAmmo + "/" + _gun.ReserveAmmo;
         }
     }
 }

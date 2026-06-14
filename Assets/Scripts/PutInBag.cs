@@ -11,6 +11,6 @@ public class PutInBag : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(_bagPrefab, _spawnPoint.position, Quaternion.identity);
-        _money.SpawnMoney(_spawnPoint);
+        _money.Spawn(_spawnPoint);
     }
 }

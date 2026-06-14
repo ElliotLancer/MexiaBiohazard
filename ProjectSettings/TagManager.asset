@@ -36,7 +36,7 @@ TagManager:
   - Zone
   - EnemyInteractZone
   - Money
-  - 
+  - Ammo
   - 
   - 
   - 
@@ -83,6 +83,9 @@ TagManager:
     locked: 0
   - name: Shell
     uniqueID: 1843754625
+    locked: 0
+  - name: Ammo
+    uniqueID: 3962794115
     locked: 0
   - name: Money
     uniqueID: 1555248991
