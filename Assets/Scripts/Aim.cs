@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
@@ -13,14 +14,17 @@ public class Aim : MonoBehaviour
     [SerializeField] private float _maxHeadAngle = 0.4f;
     private HingeFlip _hinge;
     private bool _isOnRight;
-    private bool isRight;
-    public bool isFacingRight => isRight;
+    private bool _isRight;
+    private bool _canFlip;
+    public bool isFacingRight => _isRight;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        Vector3 mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
-        _isOnRight = mousePos.x > transform.position.x ? true : false;
+        body.localScale = Vector3.one;
+        _isOnRight = true;
         _hinge = GetComponent<HingeFlip>();
+        yield return null;
+        _canFlip = true;
     }
     private void Update()
     {
@@ -35,10 +39,10 @@ public class Aim : MonoBehaviour
         {
             body.localScale = new Vector3(-1, 1, 1);
         }
-        isRight = mousePosition.x > transform.position.x ? true : false;
-        if (isRight != _isOnRight)
+        _isRight = mousePosition.x > transform.position.x ? true : false;
+        if (_canFlip && _isRight != _isOnRight)
         {
-            _isOnRight = isRight;
+            _isOnRight = _isRight;
             _hinge.Flip();
         }
 

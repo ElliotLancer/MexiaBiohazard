@@ -16,6 +16,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
     private bool _isOnRight;
     private HingeFlip _hinge;
     private bool _canShoot = true;
+    private bool _canFlip;
     private Coroutine _shootRoutine;
     private Rigidbody2D _rb;
     private void Awake()
@@ -23,21 +24,22 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
         _rb = GetComponent<Rigidbody2D>();
         _hinge = GetComponent<HingeFlip>();
     }
-    private void Start()
+    private IEnumerator Start()
     {
         _shootRoutine = StartCoroutine(Shoot());
-        _isOnRight = _targetPoint.position.x > transform.position.x ? true : false;
+        _isOnRight = false;
+        yield return new WaitForSeconds(0.1f);
+        _canFlip = true;
     }
     private void Update()
     {
         FlipUtility.FlipYRotation(transform, _targetPoint);
         bool isRight = FlipUtility.IsOnRight(transform, _targetPoint);
-        if ( isRight != _isOnRight)
+        if (_canFlip && isRight != _isOnRight)
         {
             _isOnRight = isRight;
             _hinge.Flip();
         }
-        
     }
     private void FixedUpdate()
     {

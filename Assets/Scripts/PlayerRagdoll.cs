@@ -32,7 +32,6 @@ public class PlayerRagdoll : MonoBehaviour
         foreach (Animator animator in _gunAnimators)
         {
             animator.Rebind();
-            animator.Update(0f);
             animator.enabled = false;
         }
         foreach (MonoBehaviour script in _scripts)

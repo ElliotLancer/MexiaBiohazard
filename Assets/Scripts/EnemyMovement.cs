@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -11,25 +12,32 @@ public class EnemyMovement : MonoBehaviour
     private Animator _animator;
     private Transform _player;
     private Rigidbody2D _rb;
+    private PlayerHealth _playerHealth;
+    private bool _canFlip;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponentInParent<Animator>();
         _hinge = GetComponent<HingeFlip>();
     }
-    private void Start()
+    private IEnumerator Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if(playerObject != null)
-        {
+        if (playerObject != null)
             _player = playerObject.transform;
-        }
+
+        PlayerHealth playerHealth = playerObject.GetComponentInParent<PlayerHealth>();
+        if (playerHealth != null)
+            _playerHealth = playerHealth;
+        _isOnRight = false;
+        yield return new WaitForSeconds(0.1f);
+        _canFlip = true;
     }
     private void Update()
     {
         FlipUtility.FlipYRotation(transform, _player);
         bool isRight = FlipUtility.IsOnRight(transform, _player);
-        if (isRight != _isOnRight)
+        if (_canFlip && isRight != _isOnRight)
         {
             _isOnRight = isRight;
             _hinge.Flip();
@@ -48,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
             Stop();
             return;
         }
-        if (distance > _stopDistance)
+        if (distance > _stopDistance && _playerHealth._isAlive)
         {
             Vector2 direction = (_player.position - transform.position).normalized;
             _rb.linearVelocity = new Vector2(direction.x * _speed, _rb.linearVelocity.y);
