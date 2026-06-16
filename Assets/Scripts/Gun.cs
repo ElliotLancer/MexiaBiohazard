@@ -23,6 +23,9 @@ public class Gun : MonoBehaviour
     [SerializeField] private SortingGroup _sorting;
     [SerializeField] private PlayerInteract _interact;
     [SerializeField] private Weapon _weapon;
+    [SerializeField] private AudioSource _audio;
+    [SerializeField] private AudioClip _shootSound;
+
     private IShootPattern _shootPattern;
     private bool _canShoot = true;
     private Coroutine _reloadRoutine;
@@ -69,8 +72,8 @@ public class Gun : MonoBehaviour
             return;
         lastShootTime = Time.time;
         _currentAmmo--;
+        _audio.PlayOneShot(_shootSound);
         ShootBullet();
-        SpawnShell();
         _interact.CancelPutInBag();
         
     }
