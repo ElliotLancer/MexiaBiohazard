@@ -1297,9 +1297,14 @@ MonoBehaviour:
   _coin: {fileID: 6632845887644795674, guid: 8bd2eccd6017d834c87bdb3f1556efed, type: 3}
   _dollar: {fileID: 1289586648428117804, guid: e9ab276830577574099343b65c6ef199, type: 3}
   _pistolAmmo: {fileID: 3857725276898174313, guid: 2f05baedff6e18c46b16ed100c2a7b7b, type: 3}
-  _pistolAmmoChance: 0.3
-  _pistolAmmoMin: 1
-  _pistolAmmoMax: 2
+  _rifleAmmo: {fileID: 6797970128613266753, guid: 3fa6b2348bc205e48a8325b4c6fa3437, type: 3}
+  _shotgunAmmo: {fileID: 8988137424059462648, guid: c60a33283ab142e439976d94c0c2b97c, type: 3}
+  _secondaryAmmoChance: 0.3
+  _secondaryAmmoMin: 1
+  _secondaryAmmoMax: 3
+  _primaryAmmoChance: 0.2
+  _primaryAmmoMin: 1
+  _primaryAmmoMax: 2
   _coinChance: 0.5
   _dollarChance: 0.4
   _coinMin: 1
