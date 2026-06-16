@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4676774572418830036}
   - component: {fileID: 3217429034689090379}
   - component: {fileID: 8599744000020951435}
-  m_Layer: 14
+  m_Layer: 18
   m_Name: PistolAmmoBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -332173181
-  m_SortingLayer: 11
+  m_SortingLayer: 12
   m_SortingOrder: 1
   m_Sprite: {fileID: 7088928152256669780, guid: 22042c1e9bdbbd24980d138d7328341d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,3 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minAmmoAmount: 5
   _maxAmmoAmount: 15
+  _ammoType: 0

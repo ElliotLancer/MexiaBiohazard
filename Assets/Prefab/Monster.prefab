@@ -1375,7 +1375,7 @@ MonoBehaviour:
   _secondaryAmmoChance: 0.3
   _secondaryAmmoMin: 1
   _secondaryAmmoMax: 3
-  _primaryAmmoChance: 0.3
+  _primaryAmmoChance: 0.2
   _primaryAmmoMin: 1
   _primaryAmmoMax: 2
   _coinChance: 0.6

@@ -59,8 +59,6 @@ public class Gun : MonoBehaviour
                 Reload();
             }
         }
-        Debug.Log("Reserve = " + _reserveAmmo);
-        Debug.Log("PlayerData = " + PlayerData.pistolAmmo);
     }
 
     private void Shoot()

@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     }
     public void BackToMenu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(0);
     }
     public void Quit()

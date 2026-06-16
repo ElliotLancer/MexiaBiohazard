@@ -30,7 +30,6 @@ public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
         _sorting.sortingLayerName = "DeadEnemy";
         _sorting.sortingOrder = 2;
         SetLayerRecursively(gameObject, deadEnemyLayer);
-        Debug.Log($"{_name} died");
     }
     private void SetLayerRecursively(GameObject obj, int layer)
     {

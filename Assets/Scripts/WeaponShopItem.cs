@@ -87,6 +87,7 @@ public class WeaponShopItem : MonoBehaviour
         else
         {
             _equiped = false;
+            PlayerPrefs.SetString("PrimaryWeapon", "");
             PlayerPrefs.SetInt(_weaponId + "_Equipped", 0);
         }
 

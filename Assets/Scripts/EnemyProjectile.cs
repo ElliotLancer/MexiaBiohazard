@@ -42,7 +42,6 @@ public class EnemyProjectile : MonoBehaviour
     }
     public void BulletHitProjectile()
     {
-        Debug.Log("hit bullet");
         Destroy(gameObject);
     }
 

@@ -20,6 +20,5 @@ public class ResetPose : MonoBehaviour
         {
             _bodyParts[i].localRotation = _startRotation[i];
         }
-        Debug.Log("reset");
     }
 }

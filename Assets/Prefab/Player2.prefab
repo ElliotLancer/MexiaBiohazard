@@ -143,6 +143,7 @@ MonoBehaviour:
   _sortingLayerNumber: 2
   _sorting: {fileID: 8413534303607732705}
   _interact: {fileID: 5087183476635875773}
+  _weapon: {fileID: 9038965672828575062}
   _animator: {fileID: 3939080774587794317}
   torque: 120
 --- !u!114 &6354719146243811499
@@ -202,7 +203,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_SortAtRoot: 0
 --- !u!1 &326406490732492313
 GameObject:
@@ -780,8 +781,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -44576203
+  m_SortingLayer: 9
   m_SortingOrder: 5
   m_Sprite: {fileID: 3672083404045533266, guid: fbe2c961a5d9a0a409b46ff5d75a48fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -886,7 +887,7 @@ MonoBehaviour:
   _fireRate: 0.15
   _shellForce: 14
   _currentAmmo: 10
-  _reserveAmmo: 30
+  _reserveAmmo: 20
   _magazineSize: 20
   _reloadTime: 3
   _shootAnimationName: RifleShoot
@@ -894,6 +895,7 @@ MonoBehaviour:
   _sortingLayerNumber: 1
   _sorting: {fileID: 4923877661082489687}
   _interact: {fileID: 5087183476635875773}
+  _weapon: {fileID: 8921621865090426273}
   _animator: {fileID: 457877379062852283}
   torque: 110
 --- !u!95 &457877379062852283
@@ -953,7 +955,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_SortAtRoot: 0
 --- !u!1 &1105685976195959836
 GameObject:
@@ -1119,7 +1121,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.037999723, y: 1.378}
+  m_ConnectedAnchor: {x: 0.03799996, y: 1.378}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -2970,6 +2972,7 @@ MonoBehaviour:
   _sortingLayerNumber: 1
   _sorting: {fileID: 3853833818830743225}
   _interact: {fileID: 5087183476635875773}
+  _weapon: {fileID: 8610259859322796913}
   _animator: {fileID: 8677294500237911744}
   torque: 12
 --- !u!95 &8677294500237911744
@@ -3017,7 +3020,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_SortAtRoot: 0
 --- !u!1 &6951343020940768110
 GameObject:
@@ -4214,7 +4217,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.010152863, y: 0.09051489}
+  m_ConnectedAnchor: {x: 0.010152625, y: 0.09051488}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
