@@ -6,6 +6,7 @@ public class AmmoBox : MonoBehaviour
     [SerializeField] private int _maxAmmoAmount;
     private int _ammoAmount;
     [SerializeField] private AmmoType _ammoType;
+    [SerializeField] private AudioClip _audioClip;
     private void Start()
     {
         int finalAmount = Random.Range(_minAmmoAmount, _maxAmmoAmount);
@@ -39,6 +40,7 @@ public class AmmoBox : MonoBehaviour
                 break;
             }
         }
+        AudioManager.Instance.Play(_audioClip);
         Destroy(gameObject);
     }
 }

@@ -50,6 +50,7 @@ MonoBehaviour:
   _minAmmoAmount: 5
   _maxAmmoAmount: 20
   _ammoType: 2
+  _audioClip: {fileID: 8300000, guid: 2f5cb0ce6a150754cbd0893fca184bd6, type: 3}
 --- !u!61 &7234758598222482996
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -332173181
-  m_SortingLayer: 11
+  m_SortingLayer: 12
   m_SortingOrder: 2
   m_Sprite: {fileID: 2943383342311944444, guid: 7a6455e4290f84b459aa4e13ab0785ca, type: 3}
   m_Color: {r: 0.7132075, g: 0, b: 0, a: 1}

@@ -178,3 +178,4 @@ MonoBehaviour:
   _minAmmoAmount: 5
   _maxAmmoAmount: 15
   _ammoType: 0
+  _audioClip: {fileID: 8300000, guid: 2f5cb0ce6a150754cbd0893fca184bd6, type: 3}

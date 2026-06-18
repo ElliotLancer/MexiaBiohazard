@@ -8,25 +8,34 @@ public class WeaponSounds : MonoBehaviour
     [SerializeField] private AudioClip _reloadStartSound;
     [SerializeField] private AudioClip _takeMagOutSound;
     [SerializeField] private AudioClip _putMagInSound;
-
+    [SerializeField] private AudioClip _pistolCockSound;
+    [SerializeField] private AudioClip _handSwing;
     public void InsertCartridge()
     {
-        _audio.PlayOneShot(_insertCartridgeSound);
+        AudioManager.Instance.Play(_insertCartridgeSound);
     }
     public void PumpReload()
     {
-        _audio.PlayOneShot(_pumpSound);
+        AudioManager.Instance.Play(_pumpSound);
     }
     public void ShotgunReloadStart()
     {
-        _audio.PlayOneShot(_reloadStartSound);
+        AudioManager.Instance.Play(_reloadStartSound);
     }
     public void TakeMagOut()
     {
-        _audio.PlayOneShot(_takeMagOutSound);
+        AudioManager.Instance.Play(_takeMagOutSound);
     }
     public void PutMagIn()
     {
-        _audio.PlayOneShot(_putMagInSound);
+        AudioManager.Instance.Play(_putMagInSound);
+    }
+    public void PistolCock()
+    {
+        AudioManager.Instance.Play(_pistolCockSound);
+    }
+    public void Swing()
+    {
+        AudioManager.Instance.Play(_handSwing);
     }
 }

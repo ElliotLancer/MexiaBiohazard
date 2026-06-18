@@ -176,3 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 10
+  _sound: {fileID: 8300000, guid: ad95025f20967f64796b80d82e5ebc28, type: 3}
