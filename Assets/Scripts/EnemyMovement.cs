@@ -56,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
             Stop();
             return;
         }
-        if (distance > _stopDistance && _playerHealth._isAlive)
+        if (distance > _stopDistance && _playerHealth.IsAlive)
         {
             Vector2 direction = (_player.position - transform.position).normalized;
             _rb.linearVelocity = new Vector2(direction.x * _speed, _rb.linearVelocity.y);

@@ -41,7 +41,7 @@ public class EnemyAttack : MonoBehaviour
         {
             StartCoroutine(AttackRoutine());
         }
-        if (!_playerHealth._isAlive)
+        if (!_playerHealth.IsAlive)
         {
             StopAllCoroutines();
         }

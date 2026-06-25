@@ -5,15 +5,15 @@ public class HpUI : MonoBehaviour
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Image _fillImage;
 
-    private void OnDisable()
-    {
-        _playerHealth.OnHealthChanged -= UpdateBar;
-        _playerHealth.OnDeath -= DeathBar;
-    }
     private void OnEnable()
     {
         _playerHealth.OnHealthChanged += UpdateBar;
         _playerHealth.OnDeath += DeathBar;
+    }
+    private void OnDisable()
+    {
+        _playerHealth.OnHealthChanged -= UpdateBar;
+        _playerHealth.OnDeath -= DeathBar;
     }
     private void Start()
     {

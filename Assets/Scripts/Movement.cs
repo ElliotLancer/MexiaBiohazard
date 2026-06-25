@@ -4,17 +4,19 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _crouchSpeed;
+
     [SerializeField] private BoxCollider2D _collider;
+    [SerializeField] private Aim _aim;
+    [SerializeField] private Animator animator;
+
     [SerializeField] private Vector2 _crouchSize = new Vector2(1.13f, 3.7f);
     [SerializeField] private Vector2 _crouchOffset = new Vector2(0f, -0.25f);
-    [SerializeField] private Aim _aim;
 
     private Vector2 _standSize;
     private Vector2 _standOffset;
     private Rigidbody2D _rb;
     private float _moveInput;
-    private bool _isCrouching = false;
-    public Animator animator;
+    private bool _isCrouching;
     
     private void Start()
     {
@@ -25,8 +27,12 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         _moveInput = Input.GetAxisRaw("Horizontal");
-        float moveDirection = _aim.isFacingRight ? _moveInput : -_moveInput;
+
+        // Invert animation speed when character faces left
+        float moveDirection = _aim.IsFacingRight ? _moveInput : -_moveInput;
+
         animator.SetFloat("Speed", moveDirection);
+
         _isCrouching = Input.GetKey(KeyCode.LeftControl);
         if (_isCrouching)
         {

@@ -41,7 +41,7 @@ public class PlayerMelee : MonoBehaviour
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             if(enemyHealth != null)
             {
-                enemyHealth.takeDamage(_damage);
+                enemyHealth.TakeDamage(_damage);
             }
             ZombieEnemyHealth zombieHealth = enemy.GetComponent<ZombieEnemyHealth>();
             if(zombieHealth != null)

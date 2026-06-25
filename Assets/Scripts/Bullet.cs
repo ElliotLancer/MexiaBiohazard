@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _speed = 13f;
     [SerializeField] private float _lifeTime = 3f;
     [SerializeField] private int _damage = 10;
+
     private Rigidbody2D _rb;
     private void Awake()
     {
@@ -25,20 +26,27 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Weapon") || other.gameObject.layer == LayerMask.NameToLayer("DeadEnemy") || other.gameObject.layer == LayerMask.NameToLayer("IngoreBullet") || other.CompareTag("Bullet") || other.CompareTag("Trigger"))
+        if (IgnoreCollisionWith(other))
             return;
         if (other.CompareTag("Enemy"))
         {
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            enemy.takeDamage(_damage);
+            enemy.TakeDamage(_damage);
         }
         if (other.CompareTag("ZombieEnemy"))
         {
             ZombieEnemyHealth zombie = other.GetComponent<ZombieEnemyHealth>();
             zombie.takeDamage(_damage);
         }
-        
         Destroy(gameObject);
+    }
+    private bool IgnoreCollisionWith(Collider2D other)
+    {
+        return other.CompareTag("Player") ||
+               other.CompareTag("Weapon") ||
+               other.CompareTag("Bullet") ||
+               other.CompareTag("Trigger") ||
+               other.gameObject.layer == LayerMask.NameToLayer("DeadEnemy");
     }
 }
 

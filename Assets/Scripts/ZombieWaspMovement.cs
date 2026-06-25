@@ -55,7 +55,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
             _canShoot = false;
             return;
         }
-        if (distance > _stopDistance && _playerHealth._isAlive)
+        if (distance > _stopDistance && _playerHealth.IsAlive)
         {
             Vector2 direction = (_targetPoint.position - transform.position).normalized;
             _rb.linearVelocity = new Vector2(direction.x * _speed, _rb.linearVelocity.y);
@@ -66,7 +66,7 @@ public class ZombieWaspMovement : MonoBehaviour, IEnemyDeathHandler
             Stop();
         }
         _animator.SetFloat("Speed", Mathf.Abs(_rb.linearVelocity.x));
-        if (!_playerHealth._isAlive)
+        if (!_playerHealth.IsAlive)
         {
             _canShoot = false;
         }
