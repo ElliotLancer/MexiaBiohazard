@@ -3,13 +3,17 @@ using UnityEngine.Rendering;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int _health = 70;
+    [SerializeField] private int _maxHealth = 70;
     [SerializeField] private DamagePopup _popupPrefab;
     [SerializeField] private SortingGroup _sorting;
+
     private EnemyRagdoll _enemyRagdoll;
+    private int _health;
+    private bool _isDead;
     private void Awake()
     {
         _enemyRagdoll = GetComponent<EnemyRagdoll>();
+        _health = _maxHealth;
     }
     public void TakeDamage(int damage)
     {
@@ -25,6 +29,9 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Die()
     {
+        if (_isDead)
+            return;
+
         _enemyRagdoll.EnableRagdoll();
         int deadEnemyLayer = LayerMask.NameToLayer("DeadEnemy");
         _sorting.sortingLayerName = "DeadEnemy";

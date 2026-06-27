@@ -1,16 +1,14 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyRagdoll : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D[] _parts;
     [SerializeField] private MonoBehaviour[] _scripts;
-    [SerializeField] private Collider2D[] _partColliders;
     [SerializeField] private Rigidbody2D _mainRb;
     [SerializeField] private Collider2D _mainCollider;
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _enemyInteractZone;
-    private void Start()
+    private void Awake()
     {
         DisableRagdoll();
     }
@@ -18,18 +16,14 @@ public class EnemyRagdoll : MonoBehaviour
     {
         _animator.enabled = false;
         _enemyInteractZone.enabled = true;
-        foreach(var script in _scripts)
+        foreach (MonoBehaviour script in _scripts)
         {
             script.enabled = false;
         }
-        foreach(var rb in _parts)
+        foreach (Rigidbody2D rb in _parts)
         {
             rb.simulated = true;
             rb.bodyType = RigidbodyType2D.Dynamic;
-        }
-        foreach(var collider in _partColliders)
-        {
-            collider.enabled = false;
         }
         _mainCollider.enabled = false;
         _mainRb.simulated = false;
@@ -39,13 +33,9 @@ public class EnemyRagdoll : MonoBehaviour
         _mainRb.simulated = true;
         _mainCollider.enabled = true;
         _enemyInteractZone.enabled = false;
-        foreach (var collider in _partColliders)
+        foreach (Rigidbody2D rb in _parts)
         {
-            collider.enabled = true;
-        }
-        foreach (var rb in _parts)
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.bodyType = RigidbodyType2D.Kinematic;
             rb.simulated = false;
         }
     }

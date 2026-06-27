@@ -1394,6 +1394,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186ecbb32a6529f47bc8ea7bf2fac8ef, type: 3}
+--- !u!114 &1115848999 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8578818313608912715, guid: 6a9be78797d23694881c80d98c3bd911, type: 3}
+  m_PrefabInstance: {fileID: 7348309202987422919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954d1dddcc8201141b291e37a7f05496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1217423522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2400,6 +2411,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: -0.06599808
       objectReference: {fileID: 0}
+    - target: {fileID: 8694590925379433132, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8750504800223695333, guid: 2bf108042e948f347b54af7420d1db71, type: 3}
       propertyPath: m_Name
       value: Monster (1)
@@ -2864,6 +2879,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1139899330165662762, guid: 6a9be78797d23694881c80d98c3bd911, type: 3}
+      propertyPath: _playerFlash
+      value: 
+      objectReference: {fileID: 1115848999}
     - target: {fileID: 2072569694981058611, guid: 6a9be78797d23694881c80d98c3bd911, type: 3}
       propertyPath: _cam
       value: 

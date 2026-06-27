@@ -6,7 +6,9 @@ using System.Collections;
 public class PlayerFlash : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer[] _sprites;
-    [SerializeField] private float _flashTime = 1f;
+    [SerializeField] private float _flashTime;
+
+    private Coroutine _flashRoutine;
     private Color _originalColor;
     private void Start()
     { 
@@ -14,7 +16,10 @@ public class PlayerFlash : MonoBehaviour
     }
     public void Flash()
     {
-        StartCoroutine(FlashRoutine());
+        if (_flashRoutine != null)
+            StopCoroutine(_flashRoutine);
+
+        _flashRoutine = StartCoroutine(FlashRoutine());
     }
     private IEnumerator FlashRoutine()
     {
@@ -22,10 +27,14 @@ public class PlayerFlash : MonoBehaviour
         {
             sprite.color = Color.red;
         }
+
         yield return new WaitForSeconds(_flashTime);
+
         foreach (var sprite in _sprites)
         {
             sprite.color = _originalColor;
         }
+
+        _flashRoutine = null;
     }
 }

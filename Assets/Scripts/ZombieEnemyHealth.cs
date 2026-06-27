@@ -7,13 +7,13 @@ public class ZombieEnemyHealth : MonoBehaviour, IEnemyDeathHandler
     [SerializeField] private int _health = 70;
     [SerializeField] private ResetPose _resetPose;
     [SerializeField] private DamagePopup _popupPrefab;
-    [SerializeField] private Vector3 _maxPopupRange;
+    [SerializeField] private Vector3 _popupOffsetRange;
     [SerializeField] private SortingGroup _sorting;
     private string _name;
     public void takeDamage(int damage)
     {
         _health -= damage;
-        Vector3 offset = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(_maxPopupRange.x, _maxPopupRange.y));
+        Vector3 offset = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(_popupOffsetRange.x, _popupOffsetRange.y));
         DamagePopup popup = Instantiate(_popupPrefab, transform.position + offset, Quaternion.identity);
         popup.Setup(damage);
         _resetPose.Reset();
